@@ -1,7 +1,14 @@
 #################
 ## Eclipse
 #################
-
+*.pdf
+*.aux
+*.gz
+*.lot
+*.log
+*.lof
+*.out
+*.toc
 *.pydevproject
 .project
 .metadata
