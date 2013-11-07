@@ -1,0 +1,27 @@
+\chapter{Conclusiones y Trabajos Futuros}
+\section{Conclusiones}
+\begin{itemize}
+\item Se logró aplicar el proceso de minería de datos a la información suministrada por el ICFES, logrando construir clasificadores que permitieron la elaboración de una interfaz de consultas donde los usuarios podrán conocer previamente sus resultados.
+
+\item La suite de algoritmos de minería de datos Weka, es de gran utilidad en los procesos de descubrimiento del conocimiento en bases de datos. Su gran variedad de métodos que permiten realizar desde la selección de atributos, hasta algoritmos de clasificación construidos con distintas técnicas, hacen de esta herramienta un apoyo fundamental y que debería ser usada cuando se desarrollen proyectos de este tipo.
+ 
+\item En el caso de estudio, la creación de los clasificadores, requirió de gran ayuda de parte del desarrollador, para la selección de los más apropiados acorde a los atributos predictores. Se notó que al aplicar cambios sencillos en la selección de los atributos predictores, los clasificadores mostraban cambios drásticos en sus predicciones. Los algoritmos de construcción de clasificadores son sensibles al cambio de su estructura de entrenamiento. Con agregar o retirar un atributo en el conjunto de entrenamiento, la calidad de las predicciones variaba significativamente.
+
+\item El marco metodológico seguido en durante el proyecto \cite{key-50}, da una guía clara y útil a la hora de desarrollar proyectos de minería de datos, sus pasos son perfectamente explicados y se ajustaron precisamente a cada uno de los objetivos planteados  y contribuyeron al cumplimiento de cada uno de estos.
+
+\item No se pudo encontrar un clasificador mejor o peor que otro, a excepción del algoritmo C4.5 el cual no genero resultados confiables. Todos los clasificadores tuvieron rendimientos confiables, pero algunos obtuvieron mejor rendimiento en ciertas áreas académicas. Esto se debe a que los algoritmos de clasificación tienen propiedades, en las que dependiendo el formato de los atributos predictores, generan una mayor calidad al momento de realizar las predicciones.
+
+\item El proceso de desarrollo del proyecto agrupó el mayor esfuerzo en la construcción de los clasificadores. La construcción de la interfaz de consulta fue sencilla, además de que se optó por un entorno web, en el que la codificación de las interfaces es simple y no requiere del uso de máquinas con requerimientos específicos.
+
+\item A pesar de que al evaluar la confiabilidad de la aplicación, la cantidad de clasificaciones que cumplieron con predecir correctamente todas las áreas académicas fue realmente baja, se obtuvieron resultados positivos al menos para el 50\% de las áreas académicas, además de que individualmente la calidad de las predicciones de los clasificadores estuvo por encima del 70\% de precisión.
+
+\item La interfaz de consultas que se construyó, consto del uso de las tecnologías actuales en el desarrollo web. Como lo son componentes gráficos de HTML5 y CSS3, además de la aplicación de AJAX que permite al usuario interactuar de una manera más confortable con la interfaz de consultas.
+\end{itemize}
+\section{Trabajos futuros}
+\begin{itemize}
+\item El ICFES además de poner a disposición las bases de datos de los resultados en la prueba Saber 11\degree, también permite el acceso a los resultados en las pruebas Saber 3\degree, Saber 5\degree, Saber 9\degree y SaberPro. Siguiendo una propuesta metodológica similar a la aplicada en este trabajo, se pueden construir clasificadores que permitan predecir puntajes en estas pruebas.
+
+\item Además de clasificadores, la minería de datos también permite la creación de otro tipo de utilidades que ayudan a encontrar patrones de comportamiento, por ejemplo los algoritmos de agrupamiento y los de asociación. Con las bases de datos homogeneizadas en este trabajo, se puede proceder a aplicar estos algoritmos para hallar reglas de comportamiento en los datos.
+
+\item Las instituciones académicas pueden tener la iniciativa de desarrollar proyectos similares a este, en donde los datos sean más específicos a las particularidades de sus estudiantes. Así, con una mayor precisión en la información recolectada, las predicciones tendrán una mejor  calidad y se podrán aplicar con más efectividad refuerzos a los estudiantes para mejorar sus puntajes en la prueba.
+\end{itemize}

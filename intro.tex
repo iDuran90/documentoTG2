@@ -1,0 +1,90 @@
+%% Los cap'itulos inician con \chapter{T'itulo}, estos aparecen numerados y
+%% se incluyen en el 'indice general.
+%%
+%% Recuerda que aqu'i ya puedes escribir acentos como: 'a, 'e, 'i, etc.
+%% La letra n con tilde es: 'n.
+\pagenumbering{arabic}
+\setcounter{page}{13}
+\chapter{Introducción}
+\section{Descripción general}
+En el ámbito de la educación en Colombia, la prueba Saber 11\degree\footnote{\url{http://www2.icfes.gov.co/examenes/saber-11o}} es de gran importancia para medir la calidad de la enseñanza que se está impartiendo en los colegios del país. La prueba Saber 11\degree \ es mayoritariamente presentada por estudiantes de grado 11 de los colegios del país, pero no es exclusiva de estos, cualquier persona puede presentarla, siempre y cuando ya haya obtenido título de bachiller.
+
+Los resultados que se obtienen en la prueba no han presentado mejorías importantes en los últimos 5 años \cite{key-1, key-2, key-3, key-4}, causando preocupación por la calidad de la educación media en Colombia.
+
+En \cite{key-4} se presenta un análisis a los resultados obtenidos por los estudiantes del departamento de Valle del Cauca en las pruebas Saber 5\degree, 9\degree\footnote{\url{http://www2.icfes.gov.co/examenes/pruebas-saber}} y 11\degree. Para el caso de la prueba Saber 11\degree, se presentan los resultados obtenidos en los años de 2002 a 2009, una comparación de estos resultados con los del promedio nacional de cada una de las áreas evaluadas y la categorización\footnote{\url{ftp://ftp.icfes.gov.co/SABER11/SB11-CLASIFICACION-PLANTELES/Clasificacion\%20planteles\%20SB11.pdf}} de los colegios en los años 2010 y 2011.
+
+En las conclusiones y recomendaciones incluidas en \cite{key-4}, se establece la necesidad de brindar una educación que sea pertinente con las deficiencias académicas de los estudiantes, para así poder emprender planes de mejoramiento en las instituciones educativas y reducir los bajos rendimientos en la prueba Saber 11\degree.
+
+En el presente documento se presenta el desarrollo de la construcción de una aplicación, para lograr determinar cuáles son los posibles resultados que obtendrán los estudiantes que están próximos a presentar la prueba Saber 11\degree \ y así conocer las áreas académicas en las cuales pueden poseer deficiencias.
+
+\section{Problema}
+\subsection{Descripción del problema}
+Para la construcción de una aplicación, que permita conocer previamente como podría ser el puntaje de un estudiante en una o varias de las áreas académicas evaluadas en la prueba Saber 11\degree, se cuenta con las bases de datos del ICFES\footnote{\url{ftp://ftp.icfes.gov.co/SABER11/}}\footnote{Estas bases de datos son de acceso gratuito pero previamente se deben registrar los datos personales en \url{http://64.76.89.156/index.php/bdicfes/solicitudregistro}, para poder acceder al ftp.}, que almacenan información histórica sobre aspectos personales de los evaluados como por ejemplo: calendario académico del colegio al cual pertenece, carácter académico del colegio, ubicación del colegio (departamento y municipio), valor mensual de la pensión del colegio, si el hogar cuenta con servicio de alcantarillado y recolección de basuras, cantidad de automóviles que poseen en el hogar, si tiene o no computador, cantidad de televisores en el hogar, etnia a la cual pertenece, genero, fecha de nacimiento, si trabaja o no, nivel de educación de los padres, ocupación de los padres, etc. Y además información sobre los puntajes obtenidos por ellos en las áreas académicas evaluadas\footnote{\url{ftp://ftp.icfes.gov.co/SABER11/SB11-Diccionario_de_Datos-v1-6.pdf}.}.
+
+El ICFES suministra estas bases de datos en archivos de Access\footnote{\url{http://office.microsoft.com/es-es/access}}, un archivo por cada prueba realizada desde el año 2000 (se realizan 2 pruebas cada año), pero estas bases de datos no son homogéneas, ya que durante las 24 pruebas registradas hasta el momento, la información almacenada de los evaluados no se ha mantenido constante. Durante 12 años la información ha sido recolectada a partir de encuestas en las cuales no siempre se han realizado las mismas preguntas. Por ejemplo, el dato sobre el nivel educativo de los padres se registró durante los años 2000 a 2004, pero no se registró en los años 2005 a 2007 y en 2008 vuelve a registrarse hasta ahora. Además los tipos de datos también se han modificado a lo largo de los años, en la época de 2000 a 2004 el valor ``3'' indicaba que el nivel de estudio de los padres llegaba a básica primaria, pero desde 2008 hasta ahora existen los valores ``9'' y ``10'' que significan ``Primaria Completa'' y ``Primaria Incompleta'' respectivamente. Causando esto que dentro de las bases de datos se encuentren muchos valores nulos y una falta de concordancia con los tipos de datos en muchos de los 84 atributos que se almacenan en las 24 bases de datos.
+
+Por consiguiente, en el proceso de construcción de una aplicación que permitiera conocer cómo serían los resultados de un estudiante al momento de presentar la prueba Saber 11\degree, fue necesario realizar la reestructuración de estas bases de datos, para que su información fuera concordante y no almacenara datos nulos, y así posteriormente utilizarlas como insumo en la construcción de la aplicación.
+\subsection{Formulación del problema}
+¿Cómo construir una aplicación de software, usando las bases de datos suministradas por el ICFES, que permita conocer previamente los resultados de un estudiante en la prueba Saber 11\degree?
+\section{Justificación}
+Los puntajes obtenidos en la prueba Saber 11\degree \ son de gran importancia tanto para los estudiantes que la presentan, como para las instituciones educativas y para el gobierno nacional de Colombia, ya que estos brindan una estimación de los indicadores de calidad de la educación media en el país\footnote{\url{http://www.icfes.gov.co/examenes/saber-11o/objetivos}}.
+Un estudiante que desea continuar con su vida académica ingresando a la educación universitaria, se ve en la necesidad de obtener puntajes que le permitan no solo cumplir con los mínimos puntajes necesarios de inscripción en la carrera de su predilección, sino que también le permitan ingresar a esta en la universidad. 
+
+En las instituciones educativas, alcanzar un nivel medio o alto en la clasificación otorgada por el ICFES es de gran importancia para su prestigio dentro de la sociedad académica, los colegios utilizan además estos puntajes como un indicador de autoevaluación para medir la calidad de sus prácticas pedagógicas. 
+
+Como se puede observar en la educación media del país, prácticamente todos los involucrados obtienen beneficios si se mejoran los puntajes obtenidos en la prueba Saber 11\degree. Un primer paso para trabajar en estas mejoras es tener la capacidad de detectar las deficiencias de los estudiantes. Con la aplicación que se propone construir en este documento, se podría dar ese primer paso. 
+\section{Objetivos}
+\subsection{Objetivo general}
+Desarrollar una aplicación que permita predecir los puntajes que obtendrá un estudiante en la prueba Saber 11\degree.
+\subsection{Objetivos específicos}
+\begin{enumerate}
+\item Aplicar el proceso de extracción, transformación y carga (Extract, transform and load, ETL) a las bases de datos suministradas por el ICFES.
+\item Construir un clasificador, utilizando técnicas de minería de datos, a partir de la información procesada.
+\item Implementar una interfaz en donde los usuarios puedan realizar consultas parametrizadas.
+\end{enumerate}
+\subsection{Resultados Esperados}
+En la tabla \ref{tab:cuadro1} se pueden observar cuales fueron los resultados que se deseaba obtener al momento de cumplir con cada uno de los objetivos planteados.
+\begin{table}[!htb]
+\centering
+\begin{tabular}{|p{2.5cm}|m{13cm}|}
+\hline
+	\rowcolor[gray]{0.9} 
+	\textbf{Objetivo Especifico} &
+	\textbf{Resultados Esperados} \\ 
+\hline 
+1 & \begin{itemize} \item Bases de datos del ICFES, con estructuras homogéneas y sin datos nulos.
+					\item Data mart construido con la información procesada en las bases de datos del ICFES.
+	\end{itemize} \\
+\hline
+2 & \begin{itemize} \item Informe sobre algoritmos de clasificación en el proceso de descubrimiento del conocimiento.
+					\item Selección del algoritmo de clasificación que mejor se adapta a la cantidad y el tipo de datos con los que se cuenta en el data mart.
+					\item Clasificador construido en base a la selección hecha.
+	\end{itemize} \\
+\hline
+3 & \begin{itemize} \item Documentación de los procesos de diseño, codificación y pruebas de la interfaz de consultas.
+	\end{itemize} \\ 
+\hline
+\end{tabular}
+\caption{Relación de los objetivos específicos con sus resultados esperados.}
+\label{tab:cuadro1}
+\end{table}
+\section{Alcance}
+La presente propuesta establece la construcción de una aplicación que, usando solamente la información almacenada en las bases de datos históricas del ICFES, logre entregar a los usuarios información sobre cómo podrían ser los puntajes que obtendrá un estudiante en cada una de las áreas académicas evaluadas en la prueba Saber 11\degree. 
+
+Para que un usuario pueda conocer el posible resultado de un estudiante, deberá realizar una consulta en donde ingresará datos personales del estudiante, estos datos personales que se deben ingresar serán definidos en el proceso de construcción del clasificador, pero no serán distintos a los registrados en las bases de datos del ICFES.
+
+Después de ser consultada la aplicación, la información que contendrá la respuesta estará constituida por los puntajes que podría obtener un estudiante en cada una de las áreas académicas evaluadas en la prueba Saber 11\degree: lenguaje, matemáticas, biología, química, física, filosofía, ciencias sociales e ingles.
+
+El proyecto se desarrollará llevando a cabo la propuesta metodológica presentada por José Hernández en \cite{key-50}.
+\section{Estructura del documento}
+El documento se encuentra organizado de la siguiente manera:
+
+En el Capítulo 2 se encuentra el marco conceptual y referencial en los que se fundamentó el desarrollo de este trabajo de grado.
+
+En el Capítulo 3 se relaciona como se realizó el proceso de Extracción, Transformación y Carga de las bases de datos recolectadas.
+
+En el Capítulo 4 se presentan los algoritmos de minería de datos, para la construcción de clasificadores, utilizados y los resultados obtenidos con cada uno de ellos.
+
+En el Capítulo 5, se involucran los aspectos del desarrollo de la aplicación web construida para que los usuarios puedan realizar sus consultas.
+
+En el Capítulo 6, se concluye el proyecto y se presentan las ideas para posibles trabajos futuros.

@@ -1,0 +1,121 @@
+\documentclass[oneside,numbers,spanish,english]{ezthesis}
+%% # Opciones disponibles para el documento #
+%%
+%% Las opciones con un (*) son las opciones predeterminadas.
+%%
+%% Modo de compilar:
+%%   draft            - borrador con marcas de fecha y sin im'agenes
+%%   draftmarks       - borrador con marcas de fecha y con im'agenes
+%%   final (*)        - version final de la tesis
+%%
+%% Tama'no de papel:
+%%   letterpaper (*)  - tama'no carta (Am'erica)
+%%   a4paper          - tama'no A4    (Europa)
+%%
+%% Formato de impresi'on:
+%%   oneside          - hojas impresas por un solo lado
+%%   twoside (*)      - hijas impresas por ambos lados
+%%
+%% Tama'no de letra:
+%%   10pt, 11pt, o 12pt (*)
+%%
+%% Espaciado entre renglones:
+%%   singlespace      - espacio sencillo
+%%   onehalfspace (*) - espacio de 1.5
+%%   doublespace      - a doble espacio
+%%
+%% Formato de las referencias bibliogr'aficas:
+%%   numbers          - numeradas, p.e. [1]
+%%   authoryear (*)   - por autor y a'no, p.e. (Newton, 1997)
+%%
+%% Opciones adicionales:
+%%   spanish         - tesis escrita en espa'nol
+%%
+%% Desactivar opciones especiales:
+%%   nobibtoc   - no incluir la bibiolgraf'ia en el 'Indice general
+%%   nofancyhdr - no incluir "fancyhdr" para producir los encabezados
+%%   nocolors   - no incluir "xcolor" para producir ligas con colores
+%%   nographicx - no incluir "graphicx" para insertar gr'aficos
+%%   nonatbib   - no incluir "natbib" para administrar la bibliograf'ia
+
+%% Paquetes adicionales requeridos se pueden agregar tambi'en aqu'i.
+%% Por ejemplo:
+%\usepackage{subfig}
+%\usepackage{multirow}
+\usepackage[utf8]{inputenc} 
+\usepackage[spanish]{babel}
+\usepackage[ notlof, notlot, nottoc]{tocbibind}
+\renewcommand\tocbibname{Referencias}
+%% # Datos del documento #
+%% Nota que los acentos se deben escribir: \'a, \'e, \'i, etc.
+%% La letra n con tilde es: \~n.
+
+\author{Jorge Iván Durán Páez}
+\title{Aplicación para la predicción de resultados en la prueba Saber 11\degree}
+\supervisor{David Alejandro Przybilla}
+\institution{Universidad del Valle}
+\faculty{Escuela de Ingeniería de Sistemas y Computación}
+\department{Ingeniería de Sistemas \\ Tuluá - Valle}
+
+%% # M'argenes del documento #
+%% 
+%% Quitar el comentario en la siguiente linea para austar los m'argenes del
+%% documento. Leer la documentaci'on de "geometry" para m'as informaci'on.
+
+\geometry{top=30mm,bottom=30mm,inner=30mm,outer=20mm}
+
+
+%% El siguiente comando agrega ligas activas en el documento para las
+%% referencias cruzadas y citas bibliogr'aficas. Tiene que ser *la 'ultima*
+%% instrucci'on antes de \begin{document}.
+%%\hyperlinking
+\usepackage{colortbl}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black, citecolor=black]{hyperref}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\usepackage{tabularx}
+\usepackage{lipsum}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\setlength{\parindent}{0pt}
+\include{portada}
+\include{contraportada}
+\usepackage{underscore}
+\usepackage{longtable}
+\renewcommand{\degree}{\ensuremath{^\circ}}
+
+\begin{document}
+\portada
+\contraportada
+\include{abstract}
+\include{formalidades}
+\tableofcontents
+\listoffigures
+\listoftables
+\include{intro}
+\include{marco}
+\include{etl}
+\include{clasificadores}
+%\include{clasificadores2}
+\include{aplicacion}
+\include{conclusiones}
+\include{referencias}
+%\include{capitulo1}
+%\include{capitulo2}
+%\include{capitulo3}
+%\include{conclu}
+
+\appendix
+%% Cap'itulos incluidos despues del comando \appendix aparecen como ap'endices
+%% de la tesis.
+%\include{apendiceA}
+%\include{apendiceB}
+%\include{apendiceC}
+
+%% Incluir la bibliograf'ia. Mirar el archivo "biblio.bib" para m'as detales
+%% y un ejemplo.
+\bibliography{biblio}
+
+\end{document}
