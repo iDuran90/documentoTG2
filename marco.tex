@@ -1,22 +1,25 @@
 \chapter{Marco Referencial}
 \section{Marco conceptual}
 \subsection{Descubrimiento del conocimiento en bases de datos (KDD)}
-Se define como el proceso de utilizar la información contenida en los sistemas de almacenamientos de datos para identificar patrones significativos, validos, novedosos, potencialmente útiles y comprensibles para el usuario. El proceso global consiste en transformar información de bajo nivel en conocimiento de alto nivel. El proceso KDD es interactivo e iterativo conteniendo los siguientes pasos: comprender el dominio de aplicación, extraer la base de datos objetivo, preparar los datos, minería de datos, interpretación y utilizar el conocimiento descubierto \cite{key-60}.
+En \cite{key-60} se define como: \begin{quote} Es el proceso de utilizar la información contenida en los sistemas de almacenamientos de datos para identificar patrones significativos, validos, novedosos, potencialmente útiles y comprensibles para el usuario. El proceso global consiste en transformar información de bajo nivel en conocimiento de alto nivel. El proceso KDD es interactivo e iterativo conteniendo los siguientes pasos: comprender el dominio de aplicación, extraer la base de datos objetivo, preparar los datos, minería de datos, interpretación y utilizar el conocimiento descubierto \end{quote}.
 \subsection{Minería de datos}
-Es un campo interdisciplinar con el objetivo general de predecir las salidas y revelar relaciones en los datos. Las tareas propias de la minería de datos pueden ser descriptivas, (i.e. descubrir patrones interesantes o relaciones describiendo los datos), o predictivas (i.e. clasificar nuevos datos basándose en los anteriormente disponibles). Para ello se utilizan herramientas automáticas que emplean algoritmos sofisticados para descubrir principalmente patrones ocultos, asociaciones, anomalías, y/o estructuras de la gran cantidad de datos almacenados en los Data Warehouses u otros repositorios de información, y filtran la información necesaria de las grandes bases de datos \cite{key-60}.
+En \cite{key-60} se define como: \begin{quote} Es un campo interdisciplinar con el objetivo general de predecir las salidas y revelar relaciones en los datos. Las tareas propias de la minería de datos pueden ser descriptivas, (i.e. descubrir patrones interesantes o relaciones describiendo los datos), o predictivas (i.e. clasificar nuevos datos basándose en los anteriormente disponibles). Para ello se utilizan herramientas automáticas que emplean algoritmos sofisticados para descubrir principalmente patrones ocultos, asociaciones, anomalías, y/o estructuras de la gran cantidad de datos almacenados en los Data Warehouses u otros repositorios de información, y filtran la información necesaria de las grandes bases de datos \end{quote}.
 \subsection{Clasificación}
-Es la tarea de aproximar una \emph{función}
-\emph{objetivo }desconocida $\Phi:I\times C\rightarrow\left\{ T,F\right\} $
-(que describe cómo instancias del problema deben ser clasificadas
-de acuerdo a un experto en el dominio) por medio de una función $\Theta:I\times C\rightarrow\left\{ T,F\right\} $
-llamada el \emph{clasificador}, donde $C=\left\{ c_{1},...,c_{|c|}\right\} $
-es un conjunto de categorías predefinido e \emph{I} es un conjunto
-de instancias del problema. Comúnmente cada instancia $i_{j}\epsilon I$
+En la minería de datos, probablemente la tarea más popular por su objetivo es la clasificación. En esta tarea el objetivo es construir una función que permita, usando los atributos de una instancia, conocer la clase a la cual puede pertenecer la instancia. Para la construcción de los clasificadores se utiliza un conjunto de datos de entrenamiento, los cuales contiene un grupo de atributos predictores y un atributo a predecir, normalmente conocido como la clase a predecir. \\ \\
+Formalmente, en \cite{key-70} se define como la tarea de aproximar una \emph{función objetivo} desconocida, que describe cómo instancias del problema deben ser clasificadas
+de acuerdo a un experto en el dominio, \begin{quote}$\Phi:I\times C\rightarrow\left\{ T,F\right\} $\end{quote}
+ por medio de una función llamada el \emph{clasificador}, \begin{quote}
+$\Theta:I\times C\rightarrow\left\{ T,F\right\} $
+\end{quote} 
+ donde \begin{quote}
+ $C=\left\{ c_{1},...,c_{|c|}\right\} $ es un conjunto de categorías predefinido\end{quote}
+ e \begin{quote}\emph{I} es un conjunto
+de instancias del problema\end{quote} Comúnmente cada instancia $i_{j}\epsilon I$
 es representada como una lista $A=\left\{ a_{1},a_{2},...,a_{|A|}\right\} $
 de valores característicos, conocidos como \emph{atributos}, i.e.
-$i_{j}=\left\{ a_{1},a_{2},...,a_{|A|j}\right\} $. Si $\Phi:i_{j}\times c_{i}\rightarrow T$,
-entonces es llamado un ejemplo positivo de $c_{i}$, mientras si $\Phi:i_{j}\times c_{i}\rightarrow F$
-éste es llamado un ejemplo negativo de $c_{i}$.
+$i_{j}=\left\{ a_{1},a_{2},...,a_{|A|j}\right\} $. \\Si \begin{quote}$\Phi:i_{j}\times c_{i}\rightarrow T$,
+entonces es llamado un ejemplo positivo de $c_{i}$ \end{quote} mientras si \begin{quote}$\Phi:i_{j}\times c_{i}\rightarrow F$
+éste es llamado un ejemplo negativo de $c_{i}$\end{quote}
 
 Para generar automáticamente el clasificador de $c_{i}$ es necesario
 un proceso inductivo, llamado el \emph{aprendizaje}, el cual por observar
@@ -27,7 +30,24 @@ del clasificador se requiere la disponibilidad inicial de una colección
 $\Omega$ de ejemplos tales que el valor de $\Phi\left(i_{j},c_{i}\right)$
 es conocido para cada $\left\langle i_{j},c_{i}\right\rangle \epsilon\Omega\times C$.
 A la colección usualmente se le llama \emph{conjunto de entrenamiento}
-$\left(Tr\right)$\cite{key-70}.
+$\left(Tr\right)$.
+\subsection{Evaluación de clasificadores}
+Al momento de evaluar un clasificador, lo que se busca es conocer como es clasificada cada una de las instancias de un conjunto de evaluación. En estas instancias se conoce la clase a la cual pertenecen. El clasificador, procesa el conjunto de evaluación y retorna la clase a la que cada instancia debería pertenecer según los atributos predictores que contiene.\\
+Usando las clasificaciones reales y las retornadas después de la evaluación, se generan 2 valores de evaluación de la calidad del clasificador. Estos 2 valores son Precisión y Exhaustividad (Presicion and Recall).\\
+La precisión es la fracción de instancias correctamente clasificadas en una clase y la exhaustividad en la fracción de instancias de una clase que se clasificaron correctamente. \cite{key-280}\\
+Teniendo que:
+\begin{center}
+$A=Conjunto\ de\  instancias\  de\  la\  clase\  X\  en\  el\  conjunto\  de\  evaluaci\acute{o}n$
+
+$B=Conjunto\  de\  instancias\  clasificadas\  en\  la\  clase\  X\  por\  el\  clasificador$
+\end{center}
+Entonces
+\begin{center}
+$Presici\acute{o}n=\frac{|A\cap B|}{|B|}$
+
+$Recall=\frac{|A\cap B|}{|A|}$
+\end{center}
+Cuanto más cerca estén estos valores a 1, mejor será la calidad del clasificador.
 \subsection{ICFES}
 Instituto Colombiano para la Evaluación de la Educación, entidad especializada en ofrecer servicios de evaluación de la educación en todos sus niveles, y en particular apoyar al Ministerio de Educación Nacional en la realización de los exámenes de Estado y en adelantar investigaciones sobre los factores que inciden en la calidad educativa, para ofrecer información pertinente y oportuna para contribuir al mejoramiento de la calidad de la educación en Colombia \cite{key-80}.
 \subsection{Prueba Saber 11\degree}\label{sec:saber11}
@@ -65,13 +85,20 @@ Es un repositorio de datos operacionales seleccionados y adaptados subjetivament
 \subsection{Data Mart}
 Desde un Data Warehouse, los datos fluyen hacia los departamentos de la organización, que personalizan la información almacenada para que sea útil en los sistemas de información de cada uno de ellos. Estos componentes individuales con características personalizadas son conocidos como Data Mart. En otras palabras, es un cuerpo de datos de un sistema de información, que posee la estructura fundamental de un Data Warehouse, es una subsección de una Data Warehouse y más popular que este \cite{key-90}.
 \section{Antecedentes o Estado del Arte}
-\subsection{Detección de patrones de bajo rendimiento académico y deserción estudiantil con técnicas de minería de datos \cite{key-100}}
-Su objetivo fue determinar en la comunidad universitaria perfiles de bajo rendimiento académico y deserción estudiantil aplicando técnicas de descubrimiento del conocimiento, a partir de los datos almacenados en las bases de datos durante los últimos 15 años. Este proceso se apoyó con TariyKDD, una herramienta de minería de datos de distribución libre. Aunque el trabajo de investigación este orientado a detectar bajos rendimientos de estudiantes en la universidad, su proceso de investigación es similar al que se espera llevar en este proyecto, por lo tanto sirve de guía para el desarrollo de este. Además de que la información utilizada para predecir el comportamiento académico de los estudiantes se basa en información socio-económica, que es la misma con la que se cuenta en las bases de datos del ICFES para construir el clasificador.
+En el área de la educación, los trabajos presentados a continuación se orientaron a encontrar posibilidades de bajos rendimiento académicos y así lograr conocer perfiles o factores que hacen que los estudiantes no logren las metas propuestas en sus estudios. Este trabajo de grado también se orientó a encontrar estas posibilidades de bajos rendimientos, pero no aplicado a estudiantes de universidades, sino a los estudiantes que presentan la prueba Saber 11\degree.
 
-Este trabajo desarrolló de manera organizada y bien estructurada, cada uno de los pasos planteados en \cite{key-50}. El algoritmo de minería de datos utilizado fue arboles de clasificación con C4.5 \cite{key-50, key-70}, los resultados entregados por esta investigación, fueron claros y mostraron cuales eran los perfiles de los estudiantes que podrían prever un bajo rendimiento.
+También se observó la variedad de algoritmos utilizados para construir los clasificadores, en algunos trabajos se utilizó más de un algoritmo para lograr encontrar comparaciones de rendimiento y mejores niveles de precisión con cada algoritmo. En este trabajo se evaluaron distintos algoritmos para la construcción de clasificadores, con el fin de encontrar información sobre cómo se comportan con la cantidad de datos usados y con la estructura que posean estos datos.
+
+En este trabajo se utilizaron bases de datos que contenían más de 5 millones de registros\footnote{\url{ftp://ftp.icfes.gov.co/SABER11/SB11-FTP_Algunos_Totales_de_Control-v1-1.pdf}}, recolectados a lo largo de 11 años y que presentan una gran variación en la integridad de los atributos de estos registros. Por eso este trabajo centró su primera parte en la homogeneización de estas bases de datos. En los trabajos revisados, la cantidad de datos utilizados en los procesos de investigación, no eran tantos como los que se utilizaron en este trabajo.
+
+En conclusión los trabajos aquí presentados sirvieron de base para la realización de este trabajo, ya que sus fases de investigación fueron las mismas en la mayoría de los trabajos, iguales a las que se aplicaron en este trabajo. Además, los resultados obtenidos en ellos, muestran la utilidad de la construcción de clasificadores para predecir resultados de estudiantes en exámenes o procesos de su vida académica.
+\subsection{Detección de patrones de bajo rendimiento académico y deserción estudiantil con técnicas de minería de datos \cite{key-100}}
+Su objetivo fue determinar en la comunidad universitaria perfiles de bajo rendimiento académico y deserción estudiantil aplicando técnicas de descubrimiento del conocimiento, a partir de los datos almacenados en las bases de datos durante los últimos 15 años. Este proceso se apoyó con TariyKDD\footnote{\url{http://developer.berlios.de/projects/tariykdd/}}, una herramienta de minería de datos de distribución libre. Aunque el trabajo de investigación este orientado a detectar bajos rendimientos de estudiantes en la universidad, su proceso de investigación es similar al que se espera llevar en este proyecto, por lo tanto sirve de guía para el desarrollo de este. Además de que la información utilizada para predecir el comportamiento académico de los estudiantes se basa en información socio-económica, que es la misma con la que se cuenta en las bases de datos del ICFES para construir el clasificador.
+
+Este trabajo desarrolló de manera organizada y bien estructurada, cada uno de los pasos planteados en \cite{key-50}. El algoritmo de minería de datos utilizado fue arboles de clasificación con C4.5 \cite{key-50, key-70}, los resultados entregados por esta investigación mostraron cuales eran los perfiles de los estudiantes que podrían prever un bajo rendimiento.
 La investigación se realizó en la Universidad de Nariño de Colombia. Las bases de datos recolectadas contenían información sobre el desempeño académico e información personal de 46173 estudiantes, acumuladas durante 15 años.
 
-Inicialmente se contaba con 69 atributos en las bases de datos que describían las características de los estudiantes, pero después de pasar por el proceso de limpieza y transformación de los datos, se llegó a una lista relevante de 26 atributos y una cantidad de registros de 20329.
+Inicialmente se contaba con 69 atributos en las bases de datos que describían las características de los estudiantes, pero después de pasar por el proceso de limpieza y transformación de los datos, y utilizando TariyKDD para seleccionar los atributos más relevantes, se llegó a una lista de 26 atributos y una cantidad de registros de 20329.
 
 Finalmente, se aplicaron las técnicas de minería de datos para clasificación, en este caso el algoritmo C4.5 y se obtuvieron las reglas que indicaban que tipo de situaciones personales de un estudiante podrían llevar a obtener un bajo rendimiento en la universidad. Unos ejemplos de las reglas obtenidas son:
 \begin{itemize}
@@ -81,7 +108,7 @@ Finalmente, se aplicaron las técnicas de minería de datos para clasificación,
 \subsection{Minería de datos en la educación \cite{key-110}}
 En este documento se describe el uso de la minería de datos aplicada a entornos educativos y su uso pedagógico. De manera muy clara y especifica brinda una vista de cómo se debe realizar un proceso de minería de datos en educación y su importancia.
 
-Además muestra un ejemplo: ``Identificación de características de fracasos escolares en institutos''. En este se usan arboles de decisión porque permiten encontrar cuales son las variables que tienen mayor relación con la variable que se desea predecir. El algoritmo de árboles de decisión utilizado fue CHAID \cite{key-120} (Chi-Squared Automatic Interaction Detection). CHAID realiza comparaciones en pares para encontrar la variable de predicción más altamente relacionada con la variable raíz. En sistemas de muchas variables, tener esta función implementada en un ordenador es esencial para procesar amplios conjuntos de datos \cite{key-110}. El resultado entregado fue un árbol, el cual se debió analizar para determinar su información.
+Además muestra un ejemplo: ``Identificación de características de fracasos escolares en institutos''. En este se usan arboles de decisión porque permiten encontrar cuales son las variables que tienen mayor relación con la variable que se desea predecir. El algoritmo de árboles de decisión utilizado fue CHAID \cite{key-120} (Chi-Squared Automatic Interaction Detection). CHAID realiza comparaciones en pares para encontrar la variable de predicción más altamente relacionada con la variable raíz. En sistemas de muchas variables, tener esta función implementada en un ordenador es esencial para procesar amplios conjuntos de datos (Big Data) \cite{key-110}. El resultado entregado fue un árbol, el cual se debió analizar para determinar su información.
 \subsection{Minería de datos: predicción de la deserción escolar mediante el algoritmo de árboles de decisión y el algoritmo de los k vecinos más cercanos \cite{key-130}}
 Se aplicaron técnicas de minería de datos para buscar conocer previamente si los estudiantes eran propensos a abandonar su carrera en la Universidad Tecnológica de Izúcar de Matamoros, México, tomando como base de análisis los datos del estudio socioeconómico del EXANI-II\footnote{\url{http://www.ceneval.edu.mx/ceneval-web/content.do?page=1738}}, elaborado por el CENEVAL\footnote{\url{http://www.ceneval.edu.mx/ceneval-web/content.do?page=1702}}, mismo que se aplica desde el año 2003 en la institución. Para esta investigación se utilizaron específicamente dos algoritmos: el algoritmo de árboles de clasificación C4.5 y el algoritmo de los k vecinos más cercanos \cite{key-70}.
 
@@ -95,22 +122,13 @@ El algoritmo de clasificación utilizado fue C4.5, y se recolectaron datos con i
 
 Los resultados obtenidos mostraron que de las 157 materias distintas que ofrece la universidad en sus carreras, 64 materias tienen un porcentaje de reprobación menor a 40\% y por lo tanto no generan un árbol de predicción. En las materias con un porcentaje mayor al 50\% se determinó que el factor principal de reprobación es el profesor que imparte la materia y también la edad de los estudiantes.
 \subsection{La metodología del Data Mining. Una aplicación al consumo de alcohol en adolescentes \cite{key-150}}
-Aunque en esta investigación su objetivo no estaba focalizado en descubrir conocimiento en el área de la educación. Sí es un trabajo interesante y que sirvió de guía en este trabajo de grado, ya que en él se realizó la construcción de 3 algoritmos distintos de predicción: redes neuronales, arboles de decisión y Naive Bayes \cite{key-50}.
+Aunque en esta investigación el objetivo no estaba focalizado en descubrir conocimiento en el área de la educación. Es un trabajo interesante el cual sirvió de guía en este trabajo de grado, ya que en él se realizó la construcción de 3 algoritmos distintos de predicción: redes neuronales, arboles de decisión y Naive Bayes \cite{key-50}.
 
 El trabajo se centra en demostrar la importancia que tiene el descubrimiento del conocimiento en bases de datos al momento de predecir comportamientos en distintas áreas como educación, finanzas, comercio, telecomunicaciones, salud, entre otras.
 
 Estos algoritmos fueron aplicados en un conjunto de datos que contenía 7030 registro que informaban sobre el consumo de alcohol en jóvenes de entre 14 y 18 años con una cantidad de 20 variables que incluían información de la personalidad como los constructos de autoestima, impulsividad, conducta antisocial y búsqueda de sensaciones.
 
 Los mejores resultados se obtuvieron con el modelo construido con redes neuronales, 64,1\% de precisión al momento de predecir si un joven consumía o no alcohol. Los otros resultados fueron una precisión de 62,3\% con árboles de decisión usando el algoritmo CART \cite{key-50} y una precisión de 59,9\% usando Naive Bayes.
-\\
-\\
-En el área de la educación, los trabajos revisados se orientaron a encontrar posibilidades de bajos rendimiento académicos y así lograr conocer perfiles o factores que hacen que los estudiantes no logren las metas propuestas en sus estudios. Este trabajo de grado también se orientó a encontrar estas posibilidades de bajos rendimientos, pero no aplicado a estudiantes de universidades, sino que se aplicó a los estudiantes que presentan la prueba Saber 11\degree.
-
-También se observó la variedad de algoritmos utilizados para realizar estos modelos de predicción, en algunos trabajos se utilizó más de un algoritmo para lograr encontrar comparaciones de rendimiento y mejores niveles de precisión con cada algoritmo. En este trabajo se evaluaron distintos algoritmos para la construcción de clasificadores, con el fin de encontrar información sobre cómo se comportan con la cantidad de datos usados y con la estructura que posean estos datos.
-
-En este trabajo se utilizaron bases de datos que contenían más de 5 millones de registros\footnote{\url{ftp://ftp.icfes.gov.co/SABER11/SB11-FTP_Algunos_Totales_de_Control-v1-1.pdf}}, recolectados a lo largo de 11 años y que presentan una gran variación en la integridad de los atributos de estos registros. Por eso este trabajo centró su primera parte en la homogeneización de estas bases de datos. En los trabajos revisados, la cantidad de datos utilizados en los procesos de investigación, no eran tantos como los que se utilizaron en este trabajo.
-
-En conclusión los trabajos aquí presentados sirvieron de base para la realización de este trabajo, ya que sus fases de investigación fueron las mismas en la mayoría de los trabajos, iguales a las que se aplicaron en este trabajo, además los resultados obtenidos en ellos, muestran la utilidad de la construcción de clasificadores para predecir resultados de estudiantes en exámenes o procesos de su vida académica.
 \section{Marco Teórico}
 Para la realización de este trabajo se utilizó la propuesta de fases claramente establecidas en \cite{key-50} donde establece que: ``Este proceso es iterativo e interactivo. Es iterativo ya que la salida de alguna de las fases puede hacer volver a pasos anteriores y porque a menudo son necesarias varias iteraciones para extraer conocimiento de alta calidad. Es interactivo porque el usuario (experto en el dominio del problema) interviene en la toma de muchas decisiones''.
 
