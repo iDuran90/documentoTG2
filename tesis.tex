@@ -63,7 +63,9 @@
 %% documento. Leer la documentaci'on de "geometry" para m'as informaci'on.
 
 \geometry{top=30mm,bottom=30mm,inner=30mm,outer=20mm}
-
+%% Se definen las dos líneas siguientes para las funciones relacionadas con las subsubsecciones
+\setcounter{secnumdepth}{3} % Para que ponga (1.1.1.1) en subsubsecciones...
+\setcounter{tocdepth}{3} % Para que añada las subsubsecciones en el indice...
 
 %% El siguiente comando agrega ligas activas en el documento para las
 %% referencias cruzadas y citas bibliogr'aficas. Tiene que ser *la 'ultima*
@@ -79,6 +81,7 @@
 \usepackage{lipsum}
 \usepackage{ragged2e}
 \usepackage{multirow}
+\usepackage{amsmath}
 \setlength{\parindent}{0pt}
 \include{portada}
 \include{contraportada}

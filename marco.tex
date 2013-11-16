@@ -4,50 +4,6 @@
 En \cite{key-60} se define como: \begin{quote} Es el proceso de utilizar la información contenida en los sistemas de almacenamientos de datos para identificar patrones significativos, validos, novedosos, potencialmente útiles y comprensibles para el usuario. El proceso global consiste en transformar información de bajo nivel en conocimiento de alto nivel. El proceso KDD es interactivo e iterativo conteniendo los siguientes pasos: comprender el dominio de aplicación, extraer la base de datos objetivo, preparar los datos, minería de datos, interpretación y utilizar el conocimiento descubierto \end{quote}.
 \subsection{Minería de datos}
 En \cite{key-60} se define como: \begin{quote} Es un campo interdisciplinar con el objetivo general de predecir las salidas y revelar relaciones en los datos. Las tareas propias de la minería de datos pueden ser descriptivas, (i.e. descubrir patrones interesantes o relaciones describiendo los datos), o predictivas (i.e. clasificar nuevos datos basándose en los anteriormente disponibles). Para ello se utilizan herramientas automáticas que emplean algoritmos sofisticados para descubrir principalmente patrones ocultos, asociaciones, anomalías, y/o estructuras de la gran cantidad de datos almacenados en los Data Warehouses u otros repositorios de información, y filtran la información necesaria de las grandes bases de datos \end{quote}.
-\subsection{Clasificación}
-En la minería de datos, probablemente la tarea más popular por su objetivo es la clasificación. En esta tarea el objetivo es construir una función que permita, usando los atributos de una instancia, conocer la clase a la cual puede pertenecer la instancia. Para la construcción de los clasificadores se utiliza un conjunto de datos de entrenamiento, los cuales contiene un grupo de atributos predictores y un atributo a predecir, normalmente conocido como la clase a predecir. \\ \\
-Formalmente, en \cite{key-70} se define como la tarea de aproximar una \emph{función objetivo} desconocida, que describe cómo instancias del problema deben ser clasificadas
-de acuerdo a un experto en el dominio, \begin{quote}$\Phi:I\times C\rightarrow\left\{ T,F\right\} $\end{quote}
- por medio de una función llamada el \emph{clasificador}, \begin{quote}
-$\Theta:I\times C\rightarrow\left\{ T,F\right\} $
-\end{quote} 
- donde \begin{quote}
- $C=\left\{ c_{1},...,c_{|c|}\right\} $ es un conjunto de categorías predefinido\end{quote}
- e \begin{quote}\emph{I} es un conjunto
-de instancias del problema\end{quote} Comúnmente cada instancia $i_{j}\epsilon I$
-es representada como una lista $A=\left\{ a_{1},a_{2},...,a_{|A|}\right\} $
-de valores característicos, conocidos como \emph{atributos}, i.e.
-$i_{j}=\left\{ a_{1},a_{2},...,a_{|A|j}\right\} $. \\Si \begin{quote}$\Phi:i_{j}\times c_{i}\rightarrow T$,
-entonces es llamado un ejemplo positivo de $c_{i}$ \end{quote} mientras si \begin{quote}$\Phi:i_{j}\times c_{i}\rightarrow F$
-éste es llamado un ejemplo negativo de $c_{i}$\end{quote}
-
-Para generar automáticamente el clasificador de $c_{i}$ es necesario
-un proceso inductivo, llamado el \emph{aprendizaje}, el cual por observar
-los atributos de un conjunto de instancias preclasificadas bajo $c_{i}$
-o $\bar{c_{i}}$, adquiere los atributos que una instancia no vista
-debe tener para pertenecer a la categoría. Por tal motivo, en la construcción
-del clasificador se requiere la disponibilidad inicial de una colección
-$\Omega$ de ejemplos tales que el valor de $\Phi\left(i_{j},c_{i}\right)$
-es conocido para cada $\left\langle i_{j},c_{i}\right\rangle \epsilon\Omega\times C$.
-A la colección usualmente se le llama \emph{conjunto de entrenamiento}
-$\left(Tr\right)$.
-\subsection{Evaluación de clasificadores}
-Al momento de evaluar un clasificador, lo que se busca es conocer como es clasificada cada una de las instancias de un conjunto de evaluación. En estas instancias se conoce la clase a la cual pertenecen. El clasificador, procesa el conjunto de evaluación y retorna la clase a la que cada instancia debería pertenecer según los atributos predictores que contiene.\\
-Usando las clasificaciones reales y las retornadas después de la evaluación, se generan 2 valores de evaluación de la calidad del clasificador. Estos 2 valores son Precisión y Exhaustividad (Presicion and Recall).\\
-La precisión es la fracción de instancias correctamente clasificadas en una clase y la exhaustividad en la fracción de instancias de una clase que se clasificaron correctamente. \cite{key-280}\\
-Teniendo que:
-\begin{center}
-$A=Conjunto\ de\  instancias\  de\  la\  clase\  X\  en\  el\  conjunto\  de\  evaluaci\acute{o}n$
-
-$B=Conjunto\  de\  instancias\  clasificadas\  en\  la\  clase\  X\  por\  el\  clasificador$
-\end{center}
-Entonces
-\begin{center}
-$Presici\acute{o}n=\frac{|A\cap B|}{|B|}$
-
-$Recall=\frac{|A\cap B|}{|A|}$
-\end{center}
-Cuanto más cerca estén estos valores a 1, mejor será la calidad del clasificador.
 \subsection{ICFES}
 Instituto Colombiano para la Evaluación de la Educación, entidad especializada en ofrecer servicios de evaluación de la educación en todos sus niveles, y en particular apoyar al Ministerio de Educación Nacional en la realización de los exámenes de Estado y en adelantar investigaciones sobre los factores que inciden en la calidad educativa, para ofrecer información pertinente y oportuna para contribuir al mejoramiento de la calidad de la educación en Colombia \cite{key-80}.
 \subsection{Prueba Saber 11\degree}\label{sec:saber11}
@@ -130,7 +86,8 @@ Estos algoritmos fueron aplicados en un conjunto de datos que contenía 7030 reg
 
 Los mejores resultados se obtuvieron con el modelo construido con redes neuronales, 64,1\% de precisión al momento de predecir si un joven consumía o no alcohol. Los otros resultados fueron una precisión de 62,3\% con árboles de decisión usando el algoritmo CART \cite{key-50} y una precisión de 59,9\% usando Naive Bayes.
 \section{Marco Teórico}
-Para la realización de este trabajo se utilizó la propuesta de fases claramente establecidas en \cite{key-50} donde establece que: ``Este proceso es iterativo e interactivo. Es iterativo ya que la salida de alguna de las fases puede hacer volver a pasos anteriores y porque a menudo son necesarias varias iteraciones para extraer conocimiento de alta calidad. Es interactivo porque el usuario (experto en el dominio del problema) interviene en la toma de muchas decisiones''.
+\subsection{Metodología para el proceso del descubrimiento del conocimiento (KDD)}
+Para la realización de este trabajo se utilizó el conjunto de fases presentadas en \cite{key-50} donde establece que: ``Este proceso es iterativo e interactivo. Es iterativo ya que la salida de alguna de las fases puede hacer volver a pasos anteriores y porque a menudo son necesarias varias iteraciones para extraer conocimiento de alta calidad. Es interactivo porque el usuario (experto en el dominio del problema) interviene en la toma de muchas decisiones''.
 
 La teoría del proceso del desarrollo de un proyecto de descubrimiento del conocimiento en bases de datos, define los siguientes pasos:
 \begin{figure}[H]
@@ -139,21 +96,218 @@ La teoría del proceso del desarrollo de un proyecto de descubrimiento del conoc
 \par\end{centering}
 \caption{Proceso de descubrimiento del conocimiento en bases de datos.}
 \end{figure}
-\subsection{Selección (\emph{Extraction}) \cite{key-50,key-100}}
+\subsubsection{Selección (\emph{Extraction}) \cite{key-50,key-100}}
 En esta etapa del proceso, es donde se investigan las fuentes, en las cuales se podrán encontrar los datos que me servirán para general un almacén de datos con información útil. Se recolectan todos los datos obtenidos en estas fuentes y se organizan en bases de datos que se usaran para la etapa de transformación.
 
 Comúnmente en los trabajos orientados a la academia \cite{key-100, key-110, key-130, key-140}, estos datos son la información de los estudiantes de la institución a lo largo del tiempo. Los datos pueden incluir información acerca de la situación socio-económica del estudiante, sus notas, su entorno académico, información familiar, entre muchas otras que defina la institución que es importante recolectar.
 
 En \cite{key-140}, donde se buscaba encontrar las reglas que indicaran si un estudiante era propenso a reprobar una materia, se seleccionaron como datos útiles: calificaciones por área del examen de admisión EXANI II, datos relevantes del estudio socio-económico, calificación del test de intereses vocacionales (KUDER), calificación del test de coeficiente intelectual (RAVEN), estilos de aprendizaje, evaluación a profesores, asignaturas cursadas y su promedio por cuatrimestre.
-\subsection{Transformación (\emph{Transformation}) \cite{key-50,key-100}}
+\subsubsection{Transformación (\emph{Transformation}) \cite{key-50,key-100}}
 En esta etapa el proceso se basa en realizar primero una limpieza de los datos, la limpieza permite obtener datos sin valores nulos o anómalos, además se estandarizan los datos para que sean del mismo tipo. 
 
 Para eliminar los datos nulos, se puede omitir este atributo o en algunos casos, cuando no son muchos los registros carentes de este valor, se pueden aplicar técnicas estadísticas como la media para insertar un valor valido y así no eliminar el registro o el atributo de la base de datos.
 
 Estos procesos de limpieza, integración y agregación de los datos, entregan como resultado una base de datos modificada con los atributos relevantes en los registros, para responder al objetivo de la investigación, muchas veces esto genera que la cantidad de registros que se tenían inicialmente, se disminuya significativamente. Pero esto permitirá obtener resultados mucho más confiables, ya que no habrá datos que generen conflictos a la hora de generar clasificaciones con respecto a algunos atributos.
-\subsection{Carga (\emph{Load}) \cite{key-50,key-100}}
+\subsubsection{Carga (\emph{Load}) \cite{key-50,key-100}}
 En esta etapa se transfieren los datos procesados en las fases anteriores al medio de almacenamiento escogido por el equipo de desarrollo. Estos medios de almacenamiento pueden ser bases de datos, Data Warehouse, Data Mart, entre otros.
-\subsection{Minería de datos \cite{key-50,key-100}}
+\subsubsection{Minería de datos \cite{key-50,key-100}}
 El objetivo de esta etapa es la búsqueda y descubrimiento de patrones insospechados y de interés utilizando diferentes técnicas de descubrimiento tales como clasificación, clustering, patrones secuenciales, asociación, entre otras \cite{key-100}. Las diferentes técnicas utilizadas pertenecen a campos como la inteligencia artificial y estadísticas. Algunos algoritmos usados comúnmente son: arboles de decisión C4.5, ID3 \cite{key-160} y CHAID (Detección Automática de Interacción basada en Chi-Cuadrado), algoritmo de los k vecinos más cercanos, Naive Bayes, redes neuronales, algoritmo de reglas de asociación Apriori, algoritmo de inducción de reglas como el Prism, diferentes versiones de algoritmos evolutivos, programación genética basada en gramática.
-\subsection{Interpretación y evaluación de los resultados \cite{key-50,key-100}}
+\subsubsection{Interpretación y evaluación de los resultados \cite{key-50,key-100}}
 En esta etapa se interpretan los patrones descubiertos y posiblemente se retorna a los anteriores pasos o etapas para posteriores iteraciones. Esta etapa puede incluir la visualización de los patrones extraídos, la remoción de los patrones redundantes o irrelevantes y la traducción de los patrones útiles en términos que sean entendibles para el usuario final de la aplicación \cite{key-100}.
+\subsection{Clasificación}
+En la minería de datos, probablemente la tarea más popular por su objetivo es la clasificación. En esta tarea el objetivo es construir una función que permita, usando los atributos de una instancia, conocer la clase a la cual puede pertenecer la instancia. Para la construcción de los clasificadores se utiliza un conjunto de datos de entrenamiento, los cuales contiene un grupo de atributos predictores y un atributo a predecir, normalmente conocido como la clase a predecir. \\
+Formalmente, en \cite{key-70} se define como la tarea de aproximar una \emph{función objetivo} desconocida, que describe cómo instancias del problema deben ser clasificadas
+de acuerdo a un experto en el dominio, \begin{quote}$\Phi:I\times C\rightarrow\left\{ T,F\right\} $\end{quote}
+ por medio de una función llamada el \emph{clasificador}, \begin{quote}
+$\Theta:I\times C\rightarrow\left\{ T,F\right\} $
+\end{quote} 
+ donde \begin{quote}
+ $C=\left\{ c_{1},...,c_{|c|}\right\} $ es un conjunto de categorías predefinido\end{quote}
+ e \begin{quote}\emph{I} es un conjunto
+de instancias del problema\end{quote} Comúnmente cada instancia $i_{j}\epsilon I$
+es representada como una lista $A=\left\{ a_{1},a_{2},...,a_{|A|}\right\} $
+de valores característicos, conocidos como \emph{atributos}, i.e.
+$i_{j}=\left\{ a_{1},a_{2},...,a_{|A|j}\right\} $. \\Si \begin{quote}$\Phi:i_{j}\times c_{i}\rightarrow T$,
+entonces es llamado un ejemplo positivo de $c_{i}$ \end{quote} mientras si \begin{quote}$\Phi:i_{j}\times c_{i}\rightarrow F$
+éste es llamado un ejemplo negativo de $c_{i}$\end{quote}
+
+Para generar automáticamente el clasificador de $c_{i}$ es necesario
+un proceso inductivo, llamado el \emph{aprendizaje}, el cual por observar
+los atributos de un conjunto de instancias preclasificadas bajo $c_{i}$
+o $\bar{c_{i}}$, adquiere los atributos que una instancia no vista
+debe tener para pertenecer a la categoría. Por tal motivo, en la construcción
+del clasificador se requiere la disponibilidad inicial de una colección
+$\Omega$ de ejemplos tales que el valor de $\Phi\left(i_{j},c_{i}\right)$
+es conocido para cada $\left\langle i_{j},c_{i}\right\rangle \epsilon\Omega\times C$.
+A la colección usualmente se le llama \emph{conjunto de entrenamiento}
+$\left(Tr\right)$.
+\subsection{Evaluación de clasificadores}
+Al momento de evaluar un clasificador, lo que se busca es conocer como es clasificada cada una de las instancias de un conjunto de evaluación. En estas instancias se conoce la clase a la cual pertenecen. El clasificador, procesa el conjunto de evaluación y retorna la clase a la que cada instancia debería pertenecer según los atributos predictores que contiene.\\
+Usando las clasificaciones reales y las retornadas después de la evaluación, se generan 2 valores de evaluación de la calidad del clasificador. Estos 2 valores son Precisión y Exhaustividad (Presicion and Recall).\\
+La precisión es la fracción de instancias correctamente clasificadas en una clase y la exhaustividad en la fracción de instancias de una clase que se clasificaron correctamente. \cite{key-280}\\
+Teniendo que:
+\begin{center}
+$A=Conjunto\ de\  instancias\  de\  la\  clase\  X\  en\  el\  conjunto\  de\  evaluaci\acute{o}n$
+
+$B=Conjunto\  de\  instancias\  clasificadas\  en\  la\  clase\  X\  por\  el\  clasificador$
+\end{center}
+Entonces
+\begin{center}
+$Presici\acute{o}n=\frac{|A\cap B|}{|B|}$
+
+$Recall=\frac{|A\cap B|}{|A|}$
+\end{center}
+Cuanto más cerca estén estos valores a 1, mejor será la calidad del clasificador.
+\subsection{Generador de árboles de decisión C4.5}
+Un árbol de decisión es un conjunto de condiciones organizadas en una estructura jerárquica. De tal manera que la decisión final se puede tomar siguiendo las condiciones desde la raíz hasta alguna de las hojas\cite{key-170}.
+
+El problema de la construcción de un árbol puede ser explicado de una manera recursiva. Primero se selecciona un atributo para ser ubicado en la raíz del árbol, y se crea una rama por cada posible valor que puede tomar este atributo. Esto divide el conjunto de datos de entrenamiento en distintas secciones con cada valor del nodo raíz. Y el proceso se repite de manera recursiva por cada una de las nuevas ramas, usando las instancias que están presentes en cada nuevo nodo. La condición de parada es cuando todas las instancias en un nodo tienen la misma clasificación\cite{key-210}.
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.6]{c45}
+\par\end{centering}
+\caption{Representación gráfica de un árbol de decisión.}
+\end{figure}
+El problema de decidir que atributo debe ser ubicado en cada nodo se resuelve usando el factor de ganancia de información. En cada iteración se evalúa la ganancia de información que genera cada uno de los atributos y se selecciona el que obtenga un mayor valor. El valor de ganancia de información es calculado usando Gain Ratio.
+
+Teniendo un conjunto \emph{S} de instancias, y \emph{frec($C_{i},S$)
+}que es el número de casos de \emph{S} que pertenecen a la clase $C_{i}$
+y $\left|S\right|$es el número de instancias en el conjunto. Entonces
+la entropía de \emph{S }es:
+\begin{center}
+$H(S)=-\overset{k}{\underset{i=1}{\sum}}(\frac{frec(C_{i},S)}{|S|}*log_{2}(\frac{frec(C_{i},S)}{|S|}))$
+\end{center}
+
+Después se procede a encontrar la entropía de cada uno de los atributos de las instancias. Posteriormente, conociendo la entropía de cada subconjunto $\left|S\right|$ ($S_{j}$ es el subconjunto de instancias que
+tienen igual valor en el atributo que se desea evaluar) se calcula
+la ganancia de información que cada atributo genera.
+\begin{center}
+$H_{X}(S)=\overset{n}{\underset{j=1}{\sum}}(\frac{|S_{j}|}{|S|}*H(S_{j}))$ Entropía del atributo \emph{X} en el conjunto \emph{S}.
+
+$G(X)=H(S)-H_{x}(S)$ Ganancia de información del atributo \emph{X}.
+\end{center}
+
+Se selecciona el atributo con mayor ganancia para ser ubicado en el
+nodo que se está iterando, y se procede a calcular el siguiente nodo.
+Las siguientes iteraciones no tendrán en cuenta en las instancias
+los atributos que han ido siendo seleccionados previamente\cite{key-290}.
+\subsection{K vecinos más cercanos}
+La regla del vecino más cercano es simple, este asigna a la instancia
+que se quiere clasificar, la clase del ejemplo más próximo utilizando
+una función de distancia. Esta función usualmente es la función de
+distancia Euclidiana, aunque una alternativa también frecuentemente
+usada es la función de distancia Manhattan.
+
+El problema con esta sencilla manera de clasificar las instancias,
+es que toma mucho tiempo comparar, cada una de las instancias de entrenamiento
+con la instancia a clasificar, para determinar cuál es la más cercana.
+La manera de reducir el tiempo que toma esta comparación es representando
+los datos de entrenamiento como un árbol, este árbol es llamado un
+kD-tree\cite{key-220}, porque almacena un grupo de
+puntos en un espacio k-dimensional. Siendo k el número de atributos
+de las instancias.
+
+El uso de los kD-tree ha ayudado a solucionar el problema de la comparación
+uno por uno, ya que el árbol divide el espacio en dimensiones que
+agrupan instancias con atributos similares, así cada evaluación no
+debe compararse contra cada instancia, sino que se compara contra
+las dimensiones, y se asigna a la clase de la dimensión con la que
+tuvo una mayor similitud\cite{key-210}.
+
+Este algoritmo tiene 3 elementos principales: el conjunto de instancias
+de entrenamiento \emph{S}, una métrica para calcular la distancia
+entre los objetos $d(x_{i},x')$ y el valor de vecinos mas
+cercanos \emph{k}. 
+
+Para clasificar una nueva instancia $z=(x',y')$ el algoritmo calcula
+las distancias con las instancias de entrenamiento $(x,y)\epsilon S$
+para determinar la lista de vecinos más cercanos. \emph{x} representa
+el conjunto de atributos predictores de una instancias e \emph{y} representa
+la clase de la instancia.
+
+Una vez se tiene la lista de los vecinos más cercanos se selecciona
+la clase de mayor frecuencia entre estos:
+\begin{center}
+$Clase\, Mayoritaria=y'=\underset{v}{argmax}\underset{(x_{i},y_{i})\epsilon S_{z}}{\sum}I(v,y_{i})$
+\end{center}
+
+donde \emph{v} es el valor de la clase, $y_{i}$ es el valor de la
+clase del \emph{i}-ésimo vecino de la lista, $S_{z}$ es el conjunto
+de las distancias entre las instancias de entrenamiento y la instancia
+de evaluación \emph{z} y \emph{I(a,b)} es una función que retorna
+1 si \emph{a} y \emph{b} son iguales, 0 si no\cite{key-300, key-180}.
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.6]{knn}
+\par\end{centering}
+\caption{En esta representación, si k=3 el algoritmo retornará la clase B pero si k=6 el algoritmo retornará la clase A. Ya que se selecciona la clase mayoritaria entre los vecinos cercanos.}
+\end{figure}
+\subsection{Naive Bayes}
+Los métodos bayesianos combaten uno de los problemas que poseen las técnicas de minería de datos, el manejo de la incertidumbre. Evitan este problema utilizando la teoría de la probabilidad para cuantificar la incertidumbre.
+
+La inducción de modelos probabilísticos a partir de los datos conocidos, permite que se realice un razonamiento sobre los nuevos datos a observar. Además de que puede calcular la probabilidad asociada a cada una de las hipótesis. Y permite actualizar la creencia en un conjunto de hipótesis, cada que se estudia una nueva instancia, es decir con cada nueva instancia, su probabilidad mejora ya que es acumulativa\cite{key-230}.
+
+El fundamento principal del clasificador Naive Bayes es la suposición de que todos los atributos son independientes conocido el valor de la clase. Esto da lugar a un modelo grafico probabilístico donde la raíz es la clase y todos los atributos son hijos de este nodo.
+
+Teniendo en cuenta estos conceptos, el teorema de Bayes es representado por:
+\begin{center}
+$P(h|O)=\frac{P(O|h)*P(h)}{P(O)}$
+\end{center}
+Que indica la probabilidad de que una hipótesis \emph{h} suceda, teniendo en cuenta un conjunto de observaciones \emph{O}.
+
+En un problema de clasificación el conjunto de observaciones es $O=\{A_{1},A_{2},...,A_{n}\}$ y la hipótesis \emph{h} es cada una de las clases posibles $h=\{c_{1},c_{2},...,c_{n}\}$. Se debe calcular la probabilidad de cada una de las clases en el conjunto \emph{h} y seleccionar la que entregue el valor más alto.
+\begin{center}
+$C_{MAP}=\underset{c\epsilon h}{arg\, max}\frac{P(O|c)*P(c)}{P(O)}=\underset{c\epsilon h}{arg\, max}P(O|c)*p(c)$
+\end{center}
+\begin{quote}
+{*}MAP = Máximum A Posteriori, valor de probabilidad máxima obtenida después de calcular todas las clases en el conjunto \emph{h}.
+\end{quote}
+Teniendo en cuenta que Bayes supone que cada atributo es independiente,
+entonces la probabilidad puede calcularse de la siguiente manera:
+\begin{center}
+$C_{MAP}=\underset{c\epsilon h}{arg\, max}P(c)*\overset{|O|}{\underset{i=1}{\Pi}}P(A_{i}|c)$
+\end{center}
+La probabilidad de cada uno de los atributos viene dada por el número
+de instancias en las cuales el atributo $A_{i}$ toma el valor $a_{i}$y
+la clase \emph{C} toma el valor $c_{i}$ sobre la cantidad de veces
+que la clase \emph{C} toma el valor $c_{i}$\cite{key-50, key-190}.
+\begin{center}
+$P(a_{i}|c_{i})=\frac{frec(a_{i},c_{i})}{frec(c_{i})}$
+\end{center}
+De esta manera el algoritmo Naive Bayes se entrena y es capaz de clasificar
+una nueva instancia.
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.6]{nive}
+\par\end{centering}
+\caption{Representación gráfica del algoritmo Naive Bayes.}
+\end{figure}
+\subsection{Funciones de base radial}
+Las redes neuronales artificiales (RNA) tienen distintas aplicaciones, entre ellas se encuentra la clasificación \cite{key-250}. Su objetivo es tratar de emular la capacidad humana de procesar información. 
+
+Las RNA pueden ser entrenadas usando métodos de aprendizaje supervisado o no supervisado \cite{key-240}. Una de las redes encontradas en el aprendizaje supervisado es la red de Funciones de Base Radial. Las redes RBF constan de 3 capas, en la primera se reciben los atributos de entrada a ser clasificados, en la segunda capa o capa oculta se utiliza una función de cálculo para realizar la transformación, no lineal, desde el espacio de la capa de entrada al espacio de la capa intermedia. En la tercera capa se encuentra los valores posibles de la clase a clasificar. 
+
+En la capa oculta se calcula la distancia euclidiana existente entre la instancia de entrada y el vector de puntos, denominados centros, aprendido por la red. Teniendo esta distancia, entonces se le aplica una función de tipo radial con forma gaussiana.
+
+Los parámetros que debe aprender una red RBF son los centros de la función o funciones gaussianas y los pesos de la función lineal que seleccionará la salida de la red.
+
+Si la instancia de entrada es \emph{x} y \emph{M} es el número de neuronas en la capa oculta entonces:
+\begin{center}
+$\phi(x)=(\phi_{1}(x),\phi_{2}(x),...,\phi_{M}(x))^{T}$
+\end{center}
+Donde $\phi_{i}(x)$ representa la distancia euclidiana entre el \emph{i}-ésimo centro y las entradas\\
+$exp(-\lambda_{i}\Vert x-c_{i}\Vert^{2})$. Y la salida de la red viene dada por:
+\begin{center}
+$y=w^{T}*\phi(x)$
+\end{center}
+Donde \emph{w} es el vector de pesos entre la capa oculta y la de salida.
+
+El cálculo de los centros de la red se realiza principalmente usando el algoritmo de los K vecinos más cercanos. Donde K se corresponde con la cantidad de neuronas en la capa oculta.
+
+Una de las desventajas que presentan las redes RBF es que necesitan de una mayor cantidad de instancias de entrenamiento, comparadas con otras redes como el Perceptron Multi Capa, para realizar clasificaciones con una mayor precisión. Pero son más rápidas de entrenar\cite{key-50, key-200}.
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.6]{rbf}
+\par\end{centering}
+\caption{Estructura de las capas de una red neuronal de funciones de base radial.}
+\end{figure}
