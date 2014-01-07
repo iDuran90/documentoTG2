@@ -1,18 +1,18 @@
 \chapter{Proceso de Selección, Transformación y Carga}
-Como primer paso para el desarrollo de proyecto, teniendo en cuenta las fases de la metodología de descubrimiento del conocimiento \cite{key-50}, se debió proceder a la preparación de los datos, esto es más conocido como proceso de “Extracción, Transformación y Carga” (ETL, por sus siglas en ingles). Durante esta fase se trabajó en homogeneizar la información contenida en las bases de datos fuente. Se analizó cual era la mejor forma de estandarizarlos y la manera de almacenarlos para posteriormente usarlos en el procesamiento de los algoritmos de descubrimiento del conocimiento.
+Como primer paso para el desarrollo del proyecto, teniendo en cuenta las fases de la metodología de descubrimiento del conocimiento \cite{key-50}, se debió proceder a la preparación de los datos, esto es más conocido como proceso de “Extracción, Transformación y Carga” (ETL, por sus siglas en ingles). Durante esta fase se trabajó en homogeneizar la información contenida en las bases de datos fuente. Se analizó cual era la mejor forma de estandarizarlos y la manera de almacenarlos para posteriormente usarlos en el procesamiento de los algoritmos de descubrimiento del conocimiento.
 \section{Selección}
 Las fuentes de información, donde se contenían los datos necesarios para la creación del clasificador, fueron de fácil recolección, ya que estas son suministradas directamente por el ICFES de manera libre.
 El servicio brindado por el ICFES para el uso de estas bases de datos para promover la investigación ayuda a que se puedan realizar trabajos como este con el fin de determinar anomalías, conductas, mejoras, etc. sobre la calidad de la educación en Colombia.
 
-La información recolectada estaba constituida por 24 bases de datos, que contenían información de cada uno de los exámenes aplicados a lo largo de 12 años desde el año 2000 hasta el 2011 (Actualmente la información del año 2012 ya se encuentra disponible, pero al momento de realizar este proceso de ETL, no lo estaba así que no se tomó como insumo para la construcción de los clasificadores), durante cada año se realizan 2 pruebas Saber 11\degree. La cantidad de registros de exámenes realizados almacenados en estas 24 bases de datos se encontraba alrededor de 5’700.000.
+La información recolectada estaba constituida por 24 bases de datos, que contenían información de cada uno de los exámenes aplicados a lo largo de 12 años desde el año 2000 hasta el 2011 (Actualmente la información del año 2012 ya se encuentra disponible, pero al momento de realizar este proceso de ETL no lo estaba, así que no se tomó como insumo para la construcción de los clasificadores), durante cada año se realizan 2 pruebas Saber 11\degree. La cantidad de registros almacenados en estas 24 bases de datos se encontraba alrededor de 5’700.000.
 
-Las bases de datos fueron obtenidas en formato Access, un tipo de archivo que se utiliza para administrar bases de datos y pertenece a Microsoft. Para su primer procesamiento se decidió transportar la información a tablas administradas por el motor de bases de datos MySQL\footnote{\url{http://www.mysql.com/}}, esto se hizo, porque para la posterior transformación de los datos, los scripts de procesamiento se programaron en el lenguaje de programación Python\footnote{\url{http://www.python.org/}} y este tiene mejor soporte a la hora de conectarse con bases de datos MySQL.
+Las bases de datos fueron obtenidas en formato Access, un tipo de archivo que se utiliza para administrar bases de datos y pertenece a Microsoft. Para su primer procesamiento se decidió transportar la información a tablas administradas por el motor de bases de datos MySQL\footnote{\url{http://www.mysql.com/}}, esto se hizo, porque para la posterior transformación de los datos, los scripts de procesamiento se construyeron usando el lenguaje de programación Python\footnote{\url{http://www.python.org/}} y este tiene mejor soporte a la hora de conectarse con bases de datos MySQL.
 \section{Transformación}
 Teniendo la información recolectada se procedió a trasformar los datos obtenidos.
 
 Esta transformación consta de estandarizar el formato en que son presentados los datos para su procesamiento, una coherencia entre el formato de presentación de los datos mejora la calidad de los resultados obtenidos, ya que estos tienen un valor de representación específico para cada caso que se puede presentar con cierto atributo, en caso de que para un atributo existan varios valores para indicar la misma situación o que para varias situaciones exista solo un valor valido, afecta la precisión con la que pueden trabajar los clasificadores.
 
-Para la transformación del formato de los datos se utilizó como guía el diccionario de datos suministrado por el ICFES \footnote{Anexo B}, en donde se muestra el historial de cómo se registró la información en las respectivas bases de datos. En este diccionario de puede apreciar la relación de las campos indagados, el año en que se registró y los valores con los que se registraba en cada año.
+Para la transformación del formato de los datos se utilizó como guía el diccionario de datos suministrado por el ICFES\footnote{\url{ftp://ftp.icfes.gov.co/SABER11/SB11-Diccionario_de_Datos-v1-6.pdf}}, en donde se muestra el historial de cómo se registró la información en las respectivas bases de datos. En este diccionario de puede apreciar la relación de las campos indagados, el año en que se registró y los valores con los que se registraba en cada año.
 
 Los datos transformados y las modificaciones aplicadas se presentan a continuación: 
 \begin{itemize}
@@ -170,7 +170,7 @@ Como se puede apreciar, a pesar de no existir una precisión del 100\% con todas
 \hline
 	\rowcolor[gray]{0.9} 
 	\multicolumn{2}{|c|}{
-	\textbf{Periodo 2000-2008-I}} &
+	\textbf{Periodo 2000-2004I}} &
 	\multicolumn{2}{|c|}{
 	\textbf{Periodo 2008-2011}}\\
 \hline
@@ -279,7 +279,7 @@ Se observó que en el segundo periodo existe una mayor precisión sobre los dato
 \caption{Transformación de los atributos FAMI\_COD\_EDUCA\_MADRE y FAMI\_COD\_EDUCA\_PADRE para ser registrados en el nuevo almacenamiento de datos.}
 \label{tab:cuadro8}
 \end{table}
-\item Atributo FAMI\_COD\_OCUP\_MADRE y FAMI\_COD\_OCUP\_PADRE representa la actividad a la que se dedican los padres del evaluado. Presenta variaciones su representación. Estas variaciones son mostradas en la tabla \ref{tab:cuadro9}.
+\item Atributo FAMI\_COD\_OCUP\_MADRE y FAMI\_COD\_OCUP\_PADRE representan la actividad a la que se dedican los padres del evaluado. Presentan variaciones en su representación. Estas variaciones son mostradas en la tabla \ref{tab:cuadro9}.
 
 \begin{table}[!htb]
 \centering
@@ -329,7 +329,7 @@ Se observó que en el segundo periodo existe una mayor precisión sobre los dato
 \caption{Variación de la representación de los atributos FAMI\_COD\_OCUP\_MADRE y FAMI\_COD\_OCUP\_PADRE en las bases de datos.}
 \label{tab:cuadro9}
 \end{table}
-Los valores entre los 2 periodos guardan muchas similitudes, en la mayoría de los casos solo varían los nombres como se registró el valor. El segundo periodo presenta algunos valores no existentes en el primero y viceversa. Para preservar los valores actuales se decidió transformar los valores del primer periodo al segundo, del primer periodo lo valores ``0'' y ``12'' no tienen una representación en el segundo periodo, así que estos permanecieron con ese valor. La transformación de los códigos se puede visualizar en la tabla \ref{tab:cuadro10}.
+Los valores entre los 2 periodos guardan muchas similitudes, en la mayoría de los casos solo varían los nombres como se registró el valor. El segundo periodo presenta algunos valores no existentes en el primero y viceversa. Para preservar los valores actuales se decidió transformar los valores del primer periodo al segundo, del primer periodo los valores ``0'' y ``12'' no tienen una representación en el segundo periodo, así que estos permanecieron con ese valor. La transformación de los códigos se puede visualizar en la tabla \ref{tab:cuadro10}.
 
 \begin{table}[!htb]
 \centering
@@ -372,7 +372,7 @@ Los valores entre los 2 periodos guardan muchas similitudes, en la mayoría de l
 \caption{Transformación de los atributos FAMI\_COD\_OCUPA\_MADRE y FAMI\_COD\_OCUPA\_PADRE para ser registrados en el nuevo almacenamiento de datos.}
 \label{tab:cuadro10}
 \end{table}
-\item Atributo FAMI\_ING\_FMILIAR\_MENSUAL representa el ingreso mensual en salarios mínimos que devengan en total lo habitantes del hogar del evaluado. Este atributo presenta variaciones a lo largo de los años por lo tanto debe ser transformado. Estas variaciones se muestran en la tabla \ref{tab:cuadro11}.
+\item Atributo FAMI\_ING\_FMILIAR\_MENSUAL representa el ingreso mensual en salarios mínimos que devengan en total lo habitantes del hogar del evaluado. Este atributo presenta variaciones a lo largo de los años por lo tanto debió ser transformado. Estas variaciones se muestran en la tabla \ref{tab:cuadro11}.
 
 \begin{table}[!htb]
 \centering
@@ -450,7 +450,7 @@ Las transformaciones aplicadas se presentan en la tabla \ref{tab:cuadro12}.
 \caption{Transformación del atributo FAMI\_ING\_FMILIAR\_MENSUAL para ser registrado en el nuevo almacenamiento de datos.}
 \label{tab:cuadro12}
 \end{table}
-\item Atributos FAMI\_SN\_LEE\_ESCRIBE\_MADRE y FAMI\_SN\_LEE\_ESCRIBE\_PADRE representa si los padres del evaluado pueden o no leer. Este valor ha sido registrado de 2 maneras distintas, pero en el Anexo B no se indica entre que rangos de tiempo se utilizó cada una.
+\item Atributos FAMI\_SN\_LEE\_ESCRIBE\_MADRE y FAMI\_SN\_LEE\_ESCRIBE\_PADRE representa si los padres del evaluado pueden o no leer. Este valor ha sido registrado de 2 maneras distintas, pero en el diccionario de datos del ICFES no se indica entre que rangos de tiempo se utilizó cada una.
 
 Estas representaciones se pueden visualizar en la tabla \ref{tab:cuadro13}.
 
@@ -483,9 +483,9 @@ A pesar de no conocer la variación de los periodos, se conocía los valores y e
 \end{itemize}
 Las anteriores transformaciones fueron aplicadas a los atributos que se utilizaron para predecir las puntuaciones en las distintas áreas evaluadas, es decir, los valores que fueron utilizados como atributos predictores. Pero los valores que representan las puntuaciones también necesitaron ser modificados, los atributos a predecir.
 
-Para transformar estos datos se utilizó discretización, ya que estos estaban presentados en valores numéricos, unos en un intervalo de [0, 100] y otros de [0, 10], se procedió a crear rangos de puntajes y asignarles un identificador a cada uno. Esta transformación se muestra en la tabla \ref{tab:cuadro14}.
+Para transformar estos datos se utilizó discretización, ya que estos estaban presentados en valores numéricos, unos en un intervalo de [1, 100] y otros de [1, 10], se procedió a crear rangos de puntajes y asignarles un identificador a cada uno. Esta transformación se muestra en la tabla \ref{tab:cuadro14}.
 \begin{itemize}
-\item Áreas académicas que se califican con un puntaje de 0 a 100:
+\item Áreas académicas que se califican con un puntaje de 1 a 100:
 \begin{itemize}
 \item Lenguaje 
 \item Matemáticas 
@@ -498,7 +498,7 @@ Para transformar estos datos se utilizó discretización, ya que estos estaban p
 \item Interdisciplinar violencia y sociedad 
 \item Interdisciplinar medio ambiente
 \end{itemize}
-\item Áreas académicas que se califican con un puntaje de 0 a 10:
+\item Áreas académicas que se califican con un puntaje de 1 a 10:
 \begin{itemize}
 \item Profundización en lenguaje 
 \item Profundización en matemáticas 
@@ -516,9 +516,9 @@ Para transformar estos datos se utilizó discretización, ya que estos estaban p
 	\textbf{Discretización aplicada a los puntajes de las áreas académicas}}\\
 \hline
 	\rowcolor[gray]{0.5}
-	Calificación de 0 a 100 & Calificación de 0 a 100 & Nuevo código\\
+	Calificación de 1 a 100 & Calificación de 1 a 10 & Nuevo código\\
 \hline
-[0, 10) & 1 & A\\
+[1, 10) & 1 & A\\
 \hline
 [10, 20) & 2 & B\\
 \hline
@@ -549,9 +549,9 @@ En los atributos que indican los puntajes de las áreas evaluadas también se de
 \item TEMA2_PROFUNDIZACION_P y TEMA4_INTERDISCIPLINAR estas áreas presentaban distintas opciones al evaluado, en la prueba de profundización se podía escoger entre Biología, Matemática, Historia, Lenguaje y Ciencias Sociales. Y en la prueba interdisciplinar se podía escoger entre Medio Ambiente, Violencia y Sociedad, y Medios de Comunicación y Cultura. Pero a partir del 2010II solo se escoge una entre 5 opciones (las pruebas de profundización en historia y comunicación y cultura desaparecieron), por lo tanto, estas 2 pruebas que ya no se evalúan no se conservaron en el nuevo almacenamiento de datos.
 \end{itemize}
 \section{Carga}
-Como último paso de la primera fase, fue necesaria la creación de un almacenamiento de datos, en donde estos sean registrados con las transformaciones aplicadas, para que cumplan la condición de ser homogéneos en sus atributos.
+Como último paso de la primera fase, fue necesaria la creación de un almacenamiento de datos, en donde la información sea registrada con las transformaciones aplicadas, para que cumpla la condición de ser homogénea en sus atributos.
 
-El modo físico de almacenamiento utilizado fue una tabla en el motor de base de datos de MyQSL, la cual después de la eliminación de algunos parámetros, los cuales no servían como atributos predictores, ya que eran llaves primarias o su valor no podía ser interpretado para darle un significado, consto de 88 atributos de los cuales 78 son atributos predictores y los 10 restantes fueron atributos a predecir (también conocidos como ``clases'').
+El modo físico de almacenamiento utilizado fue una tabla en el motor de base de datos de MyQSL, la cual después de la eliminación de algunos parámetros, los cuales no servían como atributos predictores, ya que eran llaves primarias o su valor no podía ser interpretado para darle un significado, constó de 88 atributos de los cuales 78 fueron atributos predictores y los 10 restantes fueron atributos a predecir (también conocidos como ``clases'').
 
 El diseño lógico de este almacenamiento se muestra en la figura \ref{fig:figura2}.
 
@@ -564,7 +564,7 @@ El diseño lógico de este almacenamiento se muestra en la figura \ref{fig:figur
 \end{figure}
 En el diseño lógico del modelo dimensional (figura \ref{fig:figura2}) se pueden observar las dimensiones y la tabla de hechos.
 
-Las dimensiones, que contiene los atributos que ayudan a responder las preguntas que se pueden plantear sobre el modelo, constan de la información que define las particularidades de un evaluado. Estas dimensiones son: 
+Las dimensiones, que contienen los atributos que ayudan a responder las preguntas que se pueden plantear sobre el modelo, constan de la información que define las particularidades de un evaluado. Estas dimensiones son: 
 \begin{itemize}
 \item \textbf{Colegio}: brinda información sobre el colegio en el que estudia o estudió el evaluado, por ejemplo el carácter, el calendario, la jornada escolar, entre otros.
 \item \textbf{Economía del hogar}: brinda información sobre el ambiente económico del evaluado, como por ejemplo las características físicas de su hogar, como el material de los pisos y los sistemas de servicios públicos disponibles en él. Además de informar también sobre los ingresos monetarios y la cantidad de personas en las que deben repartirse estos ingresos.
@@ -572,9 +572,9 @@ Las dimensiones, que contiene los atributos que ayudan a responder las preguntas
 \item \textbf{Ubicación}: brinda información sobre la zona geográfica donde vive el evaluado, como el municipio y departamento, y si vive en una zona rural o urbana.
 \item \textbf{Personal}: brinda información sobre las características físicas y de personalidad del estudiantes, como su edad, el genero, información sobre discapacidades, las razones que lo llevaron a escoger una carrera, entre otras.
 \end{itemize}
-Para una mayor información sobre el significado de cada uno de estos atributos y de la forma en cómo se almacenan en las bases de datos, se puede observar el anexo B.
+Para una mayor información sobre el significado de cada uno de estos atributos y de la forma en cómo se almacenan en las bases de datos, se puede observar el diccionario de datos del ICFES.
 
-En la tabla de hechos, la cual almacena los atributos los cuales contienen la información con la cual se responderá  a las preguntas planteadas al modelo, se pueden observar los registros que indican el puntaje en cada una de las áreas académicas evaluadas. 
+En la tabla de hechos, la cual almacena los atributos que contienen la información con la cual se responderá  a las preguntas planteadas al modelo, se pueden observar los registros que indican el puntaje en cada una de las áreas académicas evaluadas. 
 
 Cómo se relacionó en la sección \ref{sec:saber11}, las áreas académicas son 14, 8 de obligatoria presentación para todos los evaluados y 6 áreas electivas de las cuales se debe elegir una. Estas 6 electivas constan de 4 profundizaciones y 2 pruebas interdisciplinares, por eso en los atributos de la tabla hechos se encuentran los atributos  TEMA2_PROFUNDIZACION_P, TEMA4_INTERDISCIPLINAR, estos fueron interpretados con la ayuda de un código que indicaba cual prueba escogió cada evaluado.
 

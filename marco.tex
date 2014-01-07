@@ -1,13 +1,13 @@
 \chapter{Marco Referencial}
 \section{Marco conceptual}
 \subsection{Descubrimiento del conocimiento en bases de datos (KDD)}
-En \cite{key-60} se define como: \begin{quote} Es el proceso de utilizar la información contenida en los sistemas de almacenamientos de datos para identificar patrones significativos, validos, novedosos, potencialmente útiles y comprensibles para el usuario. El proceso global consiste en transformar información de bajo nivel en conocimiento de alto nivel. El proceso KDD es interactivo e iterativo conteniendo los siguientes pasos: comprender el dominio de aplicación, extraer la base de datos objetivo, preparar los datos, minería de datos, interpretación y utilizar el conocimiento descubierto \end{quote}.
+En \cite{key-60} se define como: \begin{quote} Es el proceso de utilizar la información contenida en los sistemas de almacenamiento de datos para identificar patrones significativos, validos, novedosos, potencialmente útiles y comprensibles para el usuario. El proceso global consiste en transformar información de bajo nivel en conocimiento de alto nivel. El proceso KDD es interactivo e iterativo conteniendo los siguientes pasos: comprender el dominio de aplicación, extraer la base de datos objetivo, preparar los datos, minería de datos, interpretación y utilizar el conocimiento descubierto \end{quote}.
 \subsection{Minería de datos}
 En \cite{key-60} se define como: \begin{quote} Es un campo interdisciplinar con el objetivo general de predecir las salidas y revelar relaciones en los datos. Las tareas propias de la minería de datos pueden ser descriptivas, (i.e. descubrir patrones interesantes o relaciones describiendo los datos), o predictivas (i.e. clasificar nuevos datos basándose en los anteriormente disponibles). Para ello se utilizan herramientas automáticas que emplean algoritmos sofisticados para descubrir principalmente patrones ocultos, asociaciones, anomalías, y/o estructuras de la gran cantidad de datos almacenados en los Data Warehouses u otros repositorios de información, y filtran la información necesaria de las grandes bases de datos \end{quote}.
 \subsection{ICFES}
 Instituto Colombiano para la Evaluación de la Educación, entidad especializada en ofrecer servicios de evaluación de la educación en todos sus niveles, y en particular apoyar al Ministerio de Educación Nacional en la realización de los exámenes de Estado y en adelantar investigaciones sobre los factores que inciden en la calidad educativa, para ofrecer información pertinente y oportuna para contribuir al mejoramiento de la calidad de la educación en Colombia \cite{key-80}.
 \subsection{Prueba Saber 11\degree}\label{sec:saber11}
-Antes conocida como Examen del ICFES, es un examen de estado que evalúa a los estudiantes que están terminando su ciclo de Educación Media. La prueba tiene como finalidad apoyar los procesos de selección y admisión que realizan las instituciones de Educación Superior. Además de este propósito, la prueba busca:
+Antes conocido como Examen del ICFES, es un examen de estado que evalúa a los estudiantes que están terminando su ciclo de educación media. La prueba tiene como finalidad apoyar los procesos de selección y admisión que realizan las instituciones de educación superior. Además de este propósito, la prueba busca:
 \begin{itemize}
 \item Brindar al estudiante información que contribuya a la selección de
 su opción profesional. 
@@ -39,7 +39,7 @@ Las áreas académicas evaluadas actualmente por la prueba Saber 11\degree \ son
 \subsection{Data Warehouse}
 Es un repositorio de datos operacionales seleccionados y adaptados subjetivamente, que puede responder consultas de tipo ad hoc, estadísticas o analíticas. Está situado en el centro de los sistemas de apoyo a la toma de decisiones de una organización y contiene datos históricos, resumidos y detallados de esta. Es esencial para una inteligencia de negocios efectiva, para la formulación e implementación de estrategias donde la gran cantidad de datos requieren ser procesados de manera rápida para comprender su significado e impacto. Permite una fácil organización y mantenimiento de los datos para una rápida recuperación y análisis de la manera en que sean requeridos \cite{key-90}.
 \subsection{Data Mart}
-Desde un Data Warehouse, los datos fluyen hacia los departamentos de la organización, que personalizan la información almacenada para que sea útil en los sistemas de información de cada uno de ellos. Estos componentes individuales con características personalizadas son conocidos como Data Mart. En otras palabras, es un cuerpo de datos de un sistema de información, que posee la estructura fundamental de un Data Warehouse, es una subsección de una Data Warehouse y más popular que este \cite{key-90}.
+Desde un Data Warehouse, los datos fluyen hacia los departamentos de la organización, que personalizan la información almacenada para que sea útil en los sistemas de información de cada uno de ellos. Estos componentes individuales con características personalizadas son conocidos como Data Mart. En otras palabras, es un cuerpo de datos de un sistema de información, que posee la estructura fundamental de un Data Warehouse. Es una subsección de un Data Warehouse y más popular que este \cite{key-90}.
 \section{Antecedentes o Estado del Arte}
 En el área de la educación, los trabajos presentados a continuación se orientaron a encontrar posibilidades de bajos rendimiento académicos y así lograr conocer perfiles o factores que hacen que los estudiantes no logren las metas propuestas en sus estudios. Este trabajo de grado también se orientó a encontrar estas posibilidades de bajos rendimientos, pero no aplicado a estudiantes de universidades, sino a los estudiantes que presentan la prueba Saber 11\degree.
 
@@ -49,14 +49,19 @@ En este trabajo se utilizaron bases de datos que contenían más de 5 millones d
 
 En conclusión los trabajos aquí presentados sirvieron de base para la realización de este trabajo, ya que sus fases de investigación fueron las mismas en la mayoría de los trabajos, iguales a las que se aplicaron en este trabajo. Además, los resultados obtenidos en ellos, muestran la utilidad de la construcción de clasificadores para predecir resultados de estudiantes en exámenes o procesos de su vida académica.
 \subsection{Detección de patrones de bajo rendimiento académico y deserción estudiantil con técnicas de minería de datos \cite{key-100}}
-Su objetivo fue determinar en la comunidad universitaria perfiles de bajo rendimiento académico y deserción estudiantil aplicando técnicas de descubrimiento del conocimiento, a partir de los datos almacenados en las bases de datos durante los últimos 15 años. Este proceso se apoyó con TariyKDD\footnote{\url{http://developer.berlios.de/projects/tariykdd/}}, una herramienta de minería de datos de distribución libre. Aunque el trabajo de investigación este orientado a detectar bajos rendimientos de estudiantes en la universidad, su proceso de investigación es similar al que se espera llevar en este proyecto, por lo tanto sirve de guía para el desarrollo de este. Además de que la información utilizada para predecir el comportamiento académico de los estudiantes se basa en información socio-económica, que es la misma con la que se cuenta en las bases de datos del ICFES para construir el clasificador.
+Su objetivo fue determinar en la comunidad universitaria perfiles de bajo rendimiento académico y deserción estudiantil aplicando técnicas de descubrimiento del conocimiento, a partir de los datos almacenados en las bases de datos durante los últimos 15 años. Este proceso se apoyó con TariyKDD\footnote{\url{http://developer.berlios.de/projects/tariykdd/}}, una herramienta de minería de datos de distribución libre.
+
+Aunque el trabajo de investigación este orientado a detectar bajos rendimientos de estudiantes en la universidad, su proceso de investigación es similar al que se esperaba llevar en este proyecto, por lo tanto sirvió de guía para el desarrollo de este. Además de que la información utilizada para predecir el comportamiento académico de los estudiantes se basa en información socio-económica, que es la misma con la que se cuenta en las bases de datos del ICFES para construir el clasificador.
 
 Este trabajo desarrolló de manera organizada y bien estructurada, cada uno de los pasos planteados en \cite{key-50}. El algoritmo de minería de datos utilizado fue arboles de clasificación con C4.5 \cite{key-50, key-70}, los resultados entregados por esta investigación mostraron cuales eran los perfiles de los estudiantes que podrían prever un bajo rendimiento.
+
 La investigación se realizó en la Universidad de Nariño de Colombia. Las bases de datos recolectadas contenían información sobre el desempeño académico e información personal de 46173 estudiantes, acumuladas durante 15 años.
 
 Inicialmente se contaba con 69 atributos en las bases de datos que describían las características de los estudiantes, pero después de pasar por el proceso de limpieza y transformación de los datos, y utilizando TariyKDD para seleccionar los atributos más relevantes, se llegó a una lista de 26 atributos y una cantidad de registros de 20329.
 
-Finalmente, se aplicaron las técnicas de minería de datos para clasificación, en este caso el algoritmo C4.5 y se obtuvieron las reglas que indicaban que tipo de situaciones personales de un estudiante podrían llevar a obtener un bajo rendimiento en la universidad. Unos ejemplos de las reglas obtenidas son:
+Finalmente, se aplicaron las técnicas de minería de datos para clasificación, en este caso el algoritmo C4.5 y se obtuvieron las reglas que indicaban que tipo de situaciones personales de un estudiante podrían llevar a obtener un bajo rendimiento en la universidad.
+
+Unos ejemplos de las reglas obtenidas son:
 \begin{itemize}
 \item Si el estrato socioeconómico es 2, el ponderado de exámenes de estado ICFES está entre 50 y 70, es del Sur de Nariño, está en primer semestre y pertenece a la facultad de Ciencias Humanas, entonces su rendimiento es Bajo. El 68\% con estas características se clasifican de esta manera. 
 \item Si la edad de ingreso es menor o igual a 18 años, el estrato socioeconómico es 2, género masculino, el ponderado ICFES está entre 50 y 70, vive con la familia, es del Sur de Nariño, está en primer semestre, está en la facultad de Ciencias Naturales y Matemáticas, entonces su rendimiento es Bajo. El 67\% con estas características se clasifican de esta manera. 
@@ -117,19 +122,19 @@ En esta etapa se interpretan los patrones descubiertos y posiblemente se retorna
 \subsection{Clasificación}
 En la minería de datos, probablemente la tarea más popular por su objetivo es la clasificación. En esta tarea el objetivo es construir una función que permita, usando los atributos de una instancia, conocer la clase a la cual puede pertenecer la instancia. Para la construcción de los clasificadores se utiliza un conjunto de datos de entrenamiento, los cuales contiene un grupo de atributos predictores y un atributo a predecir, normalmente conocido como la clase a predecir. \\
 Formalmente, en \cite{key-70} se define como la tarea de aproximar una \emph{función objetivo} desconocida, que describe cómo instancias del problema deben ser clasificadas
-de acuerdo a un experto en el dominio, \begin{quote}$\Phi:I\times C\rightarrow\left\{ T,F\right\} $\end{quote}
- por medio de una función llamada el \emph{clasificador}, \begin{quote}
+de acuerdo a un experto en el dominio, \begin{center}$\Phi:I\times C\rightarrow\left\{ T,F\right\} $\end{center}
+ por medio de una función llamada el \emph{clasificador}, \begin{center}
 $\Theta:I\times C\rightarrow\left\{ T,F\right\} $
-\end{quote} 
- donde \begin{quote}
- $C=\left\{ c_{1},...,c_{|c|}\right\} $ es un conjunto de categorías predefinido\end{quote}
- e \begin{quote}\emph{I} es un conjunto
-de instancias del problema\end{quote} Comúnmente cada instancia $i_{j}\epsilon I$
+\end{center} 
+ donde \begin{center}
+ $C=\left\{ c_{1},...,c_{|c|}\right\} $ es un conjunto de categorías predefinido\end{center}
+ e \begin{center}\emph{I} es un conjunto
+de instancias del problema\end{center} Comúnmente cada instancia $i_{j}\epsilon I$
 es representada como una lista $A=\left\{ a_{1},a_{2},...,a_{|A|}\right\} $
 de valores característicos, conocidos como \emph{atributos}, i.e.
-$i_{j}=\left\{ a_{1},a_{2},...,a_{|A|j}\right\} $. \\Si \begin{quote}$\Phi:i_{j}\times c_{i}\rightarrow T$,
-entonces es llamado un ejemplo positivo de $c_{i}$ \end{quote} mientras si \begin{quote}$\Phi:i_{j}\times c_{i}\rightarrow F$
-éste es llamado un ejemplo negativo de $c_{i}$\end{quote}
+$i_{j}=\left\{ a_{1},a_{2},...,a_{|A|j}\right\} $. \\Si \begin{center}$\Phi:i_{j}\times c_{i}\rightarrow T$,
+entonces es llamado un ejemplo positivo de $c_{i}$ \end{center} mientras si \begin{center}$\Phi:i_{j}\times c_{i}\rightarrow F$
+éste es llamado un ejemplo negativo de $c_{i}$\end{center}
 
 Para generar automáticamente el clasificador de $c_{i}$ es necesario
 un proceso inductivo, llamado el \emph{aprendizaje}, el cual por observar
@@ -268,7 +273,7 @@ entonces la probabilidad puede calcularse de la siguiente manera:
 $C_{MAP}=\underset{c\epsilon h}{arg\, max}P(c)*\overset{|O|}{\underset{i=1}{\Pi}}P(A_{i}|c)$
 \end{center}
 La probabilidad de cada uno de los atributos viene dada por el número
-de instancias en las cuales el atributo $A_{i}$ toma el valor $a_{i}$y
+de instancias en las cuales el atributo $A_{i}$ toma el valor $a_{i}$ y
 la clase \emph{C} toma el valor $c_{i}$ sobre la cantidad de veces
 que la clase \emph{C} toma el valor $c_{i}$\cite{key-50, key-190}.
 \begin{center}

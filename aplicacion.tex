@@ -49,7 +49,7 @@ En el ambiente de desarrollo se utilizó como IDE de desarrollo Eclipse\footnote
 
 Los parámetros que se envían al Servlet son procesados a través de un método POST para que la información sea enviada de manera codificada y no sea visible en la URL de la consulta. En el Servlet construido heredando la clase predefinida en java HttpServlet\footnote{\url{http://tomcat.apache.org/tomcat-7.0-doc/servletapi/javax/servlet/http/HttpServlet.html}} se construyó el método doPost() para procesar los datos recibidos y entregar una respuesta.
 
-Dentro del Servlet la librería Weka se utilizó para la carga y ejecución de los clasificadores. Para cargar los archivos que contenían la información de los clasificadores se usó la clase SerializedClassifier, después de cargar la estructura, esta debía ser instanciada en un objeto del tipo Classifier para poder ejecutar el archivo arff. Se crea un objetos del tipo Instances recibe como parámetro de construcción el BufferedReader que contiene el texto del archivo arff. Y por último, esta objeto Instances es evaluado en el clasificador utilizando el método classifyInstance(), así se obtiene un valor para la clase a clasificar y este valor es retornado por medio del método doPost().
+Dentro del Servlet la librería Weka se utilizó para la carga y ejecución de los clasificadores. Para cargar los archivos que contenían la información de los clasificadores se usó la clase SerializedClassifier, después de cargar la estructura, esta debía ser instanciada en un objeto del tipo Classifier para poder ejecutar el archivo arff. Se crea un objeto del tipo Instances que recibe como parámetro de construcción el BufferedReader que contiene el texto del archivo arff. Y por último, este objeto Instances es evaluado en el clasificador utilizando el método classifyInstance(), así se obtiene un valor para la clase a clasificar y este valor es retornado por medio del método doPost().
 
 El código de la aplicación es sencillo, ya que solo se encarga de ejecutar las consultas usando los clasificadores anteriormente creados.
 \section{Pruebas de usabilidad}
@@ -66,23 +66,23 @@ En el test de Five Second se presentó una imagen con el inicio de la página y 
 En los test de Click se presentaron 3 imágenes, cada una con una pregunta sobre una acción a ejecutar. Las imágenes \ref{fig:figura5}, \ref{fig:figura6} y \ref{fig:figura7} muestra las preguntas realizadas y los resultados obtenidos.
 \begin{figure}[!htb]
 \begin{centering}
-\includegraphics[scale=0.65]{inicio}
+\includegraphics[scale=0.7]{realizarconsultatest2}
 \par\end{centering}
-\caption{Acción: Mira las opciones en los links y selecciona aquella que creas que te permitirá ejecutar una consulta. El 90\% de los encuestados indico ``Realizar Consulta'', el 10\% ``Inicio''.}
+\caption{Acción: Mira las opciones en los links y selecciona aquella que creas que te permitirá ejecutar una consulta.}
 \label{fig:figura5}
 \end{figure}
 \begin{figure}[!htb]
 \begin{centering}
-\includegraphics[scale=0.5]{consultar}
+\includegraphics[scale=0.6]{enviarformulariotest}
 \par\end{centering}
-\caption{Acción: Donde harías click para enviar el formulario y recibir una respuesta. El 100\% de los encuestados indico ``Enviar''.}
+\caption{Acción: Donde harías click para enviar el formulario y recibir una respuesta.}
 \label{fig:figura6}
 \end{figure}
 \begin{figure}[!htb]
 \begin{centering}
-\includegraphics[scale=0.5]{resultado}
+\includegraphics[scale=0.6]{realizarconsultatest}
 \par\end{centering}
-\caption{Acción: Donde harías click después de leer el mensaje. El 100\% de los encuestados indico ``Realizar Consulta''.}
+\caption{Acción: Donde harías click después de leer el mensaje.}
 \label{fig:figura7}
 \end{figure}
 \section{Pruebas de confiabilidad}
