@@ -85,6 +85,12 @@ En los test de Click se presentaron 3 imágenes, cada una con una pregunta sobre
 \caption{Acción: Donde harías click después de leer el mensaje.}
 \label{fig:figura7}
 \end{figure}
+\section{Pruebas de código}
+Para verificar la funcionalidad del código se generaron pruebas unitarias utilizando 2 frameworks diferentes pero conectables. Uno para evaluar que el flujo de navegación dentro de la aplicación retorne los resultados esperados y otro para evaluar que los métodos construidos dentro del Servlet funcionen correctamente al procesar la información recibida.
+Para construir las pruebas del flujo de navegación se utilizó el framework de automatización de pruebas Selenium\footnote{\url{http://docs.seleniumhq.org/}}. Selenium permite grabar y reproducir pruebas a partir de un plugin que puede ser instalado en el navegador Firefox\footnote{\url{http://www.mozilla.org/en-US/firefox/new/}}. Con este plugin, el usuario inicia una grabación de pasos a seguir dentro del aplicativo web, entre cada paso ejecutado, el usuario puede agregar verificaciones de la respuesta o las respuesta esperadas al ejecutar ese paso.
+Selenium también permite la ejecución de estas grabaciones, así cada vez que se desee verificar si los resultados esperados de una secuencia de pasos están siendo correctamente procesados, se ejecuta el script creado con anterioridad y se verifica este comportamiento.
+Los scripts creados por Selenium pueden ser exportados a diferentes lenguajes de programación para ser ejecutados por otros frameworks de pruebas. Para el caso del presente trabajo, se decidió exportar el script creado al lenguaje de programación Java utilizando el framework de pruebas JUnit\footnote{\url{http://junit.org/}}.
+Con JUnit también se construyeron tests para evaluar el comportamiento de los métodos definidos en el Servlet utilizado en el servidor para procesar las consultas del usuario. Se crearon 16 métodos de test en total que permiten verificar tanto el comportamiento de la interfaz de usuario y del código generado dentro de las clases.
 \section{Pruebas de confiabilidad}
 En esta prueba se quería comprobar la calidad de las predicciones realizadas por los clasificadores. Pero no individualmente, como ya se realizó, sino en conjunto ejecutando la solicitud al Servlet que realiza el procesamiento de los datos.
 
